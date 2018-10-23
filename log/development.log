@@ -181,3 +181,788 @@ Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
 NameError (uninitialized constant VehiclesController::Vehicle):
   
 app/controllers/vehicles_controller.rb:7:in `index'
+Started GET "/" for 127.0.0.1 at 2018-10-23 15:17:50 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+Migrating to CreateVehicles (20181023201614)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20181023201614_create_vehicles.rb:3
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "vehicles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181023201614_create_vehicles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181023201614"]]
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2018-10-23 15:18:44 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.erb within layouts/application
+  [1m[36mVehicle Load (0.8ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.erb:14
+  Rendered vehicles/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 537ms (Views: 505.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 15:18:53 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.erb within layouts/application
+  Rendered vehicles/_form.html.erb (31.6ms)
+  Rendered vehicles/new.html.erb within layouts/application (40.3ms)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (can not load translations from /Users/seanchen/Desktop/CS606 Software Enginerring/TAMUber/config/locales/en.yml: #<Psych::SyntaxError: (<unknown>): found character that cannot start any token while scanning for the next token at line 33 column 1>):
+    12:   <% end %>
+    13: 
+    14:   <div class="field">
+    15:     <%= form.label :name %>
+    16:     <%= form.text_field :name %>
+    17:   </div>
+    18: 
+  
+app/views/vehicles/_form.html.erb:15:in `block in _app_views_vehicles__form_html_erb__1662684262276937728_70226948639480'
+app/views/vehicles/_form.html.erb:1:in `_app_views_vehicles__form_html_erb__1662684262276937728_70226948639480'
+app/views/vehicles/new.html.erb:3:in `_app_views_vehicles_new_html_erb__4487797942665759034_70226914922080'
+Started GET "/" for 127.0.0.1 at 2018-10-23 15:26:55 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.erb within layouts/application
+  [1m[36mVehicle Load (1.1ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.erb:14
+  Rendered vehicles/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 352ms (Views: 320.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 15:26:58 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.erb within layouts/application
+  Rendered vehicles/_form.html.erb (17.5ms)
+  Rendered vehicles/new.html.erb within layouts/application (25.5ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (can not load translations from /Users/seanchen/Desktop/CS606 Software Enginerring/TAMUber/config/locales/en.yml: #<Psych::SyntaxError: (<unknown>): found character that cannot start any token while scanning for the next token at line 33 column 1>):
+    12:   <% end %>
+    13: 
+    14:   <div class="field">
+    15:     <%= form.label :name %>
+    16:     <%= form.text_field :name %>
+    17:   </div>
+    18: 
+  
+app/views/vehicles/_form.html.erb:15:in `block in _app_views_vehicles__form_html_erb__3272664818014065653_70195114398320'
+app/views/vehicles/_form.html.erb:1:in `_app_views_vehicles__form_html_erb__3272664818014065653_70195114398320'
+app/views/vehicles/new.html.erb:3:in `_app_views_vehicles_new_html_erb___836981370923730105_70195114415500'
+Started GET "/" for 127.0.0.1 at 2018-10-23 15:33:51 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.7ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (19.4ms)
+Completed 200 OK in 316ms (Views: 300.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 15:33:54 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 67ms (Views: 55.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 15:33:56 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"63EWf1U5zL3N+lfrwvX/mfPJJp3MUje8dJlysHxvqfAi01gjWNsBB9Fbw/+AZ2N87h9AUyirpiiSR6P9bV3e/A==", "commit"=>"Create Vehicle"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: vehicle):
+  
+app/controllers/vehicles_controller.rb:3:in `vehicle_params'
+app/controllers/vehicles_controller.rb:19:in `create'
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 15:35:00 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"63EWf1U5zL3N+lfrwvX/mfPJJp3MUje8dJlysHxvqfAi01gjWNsBB9Fbw/+AZ2N87h9AUyirpiiSR6P9bV3e/A==", "commit"=>"Create Vehicle"}
+Completed 400 Bad Request in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: vehicle):
+  
+app/controllers/vehicles_controller.rb:3:in `vehicle_params'
+app/controllers/vehicles_controller.rb:19:in `create'
+Started GET "/" for 127.0.0.1 at 2018-10-23 15:35:22 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (1.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 88ms (Views: 78.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 15:35:24 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (22.0ms)
+Completed 200 OK in 119ms (Views: 112.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 15:35:30 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uVgJ/IezgNjONyToTZzgWay3BQHiowX/jAe01zqnK4xw+kegilFNYtKWsPwPDny8sWFjzwZalGtq2WWaK5VcgA==", "commit"=>"Create Vehicle"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: vehicle):
+  
+app/controllers/vehicles_controller.rb:3:in `vehicle_params'
+app/controllers/vehicles_controller.rb:19:in `create'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+Migrating to CreateVehicles (20181023201614)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "vehicles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181023201614_create_vehicles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181023201614"]]
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-23 20:56:02.665898"], ["updated_at", "2018-10-23 20:56:02.665898"]]
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/bin/rake:23
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 15:56:46 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (8.2ms)
+Completed 200 OK in 293ms (Views: 281.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 15:56:49 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jjTluwTA/SnXV0G+5SWFVLRv5TVt2tYLPAXRDiAqdKDlqKaRIyQIW+9skZAYPFRV5lGSoMxmU56jr3NtucFuXA==", "commit"=>"Create Vehicle"}
+Completed 400 Bad Request in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: vehicle):
+  
+app/controllers/vehicles_controller.rb:3:in `vehicle_params'
+app/controllers/vehicles_controller.rb:19:in `create'
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 15:57:09 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 66ms (Views: 61.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 15:57:20 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (17.4ms)
+Completed 200 OK in 65ms (Views: 58.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 15:57:23 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PRmMAx2D/0b8L6r5NIn+n7RqEm/cxe6zQxrYltWr+wlWhc8pOmcKNMQUetfJkC+e5lRl+n15aybcsHr1TEDh9Q==", "commit"=>"Create Vehicle"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[36mVehicle Create (1.2ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-10-23 20:57:23.173515"], ["updated_at", "2018-10-23 20:57:23.173515"]]
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 67ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 15:57:23 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (16.3ms)
+Completed 200 OK in 62ms (Views: 55.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 15:57:26 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 67ms (Views: 60.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 15:57:27 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mLBIJmn/r1xvzejLJjJ4UDblq5raL+XKlouEw+02VTJREgZ6ZB1i5nNsfN9koOS1KzPNVD7WdF5wVVWO/AQiPg==", "commit"=>"Create Vehicle"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[36mVehicle Create (0.7ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-10-23 20:57:27.316280"], ["updated_at", "2018-10-23 20:57:27.316280"]]
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 13ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 15:57:27 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 134ms (Views: 127.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 15:57:31 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (6.1ms)
+Completed 200 OK in 67ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 15:57:32 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CQOlpxM+pjt0nX9xf2YQE/xVYcWi5rGLjeHel/86tRzAoev7HtxrgWg862U99Iz24YMHC0YfIB9rPw/a7gjCEA==", "commit"=>"Create Vehicle"}
+Unpermitted parameters: :utf8, :authenticity_token, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[36mVehicle Create (0.8ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-10-23 20:57:32.360568"], ["updated_at", "2018-10-23 20:57:32.360568"]]
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[35m (9.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 19ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 15:57:32 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 73ms (Views: 68.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/vehicles/1/edit" for 127.0.0.1 at 2018-10-23 15:57:36 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (12.7ms)
+Completed 200 OK in 70ms (Views: 58.0ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/vehicles/1" for 127.0.0.1 at 2018-10-23 15:57:39 -0500
+Processing by VehiclesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sijxJQnhWhNvdQnpY+xG+JkKu9d7Yz7XW/iIj399pIxUFRzw1KxJfwzCvLh4u1zQy5aGElsF6Lpaus5yPjhxaA==", "commit"=>"Update Vehicle Info", "id"=>"1"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:29
+Unpermitted parameters: :utf8, :_method, :authenticity_token, :commit, :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 15:57:39 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (12.6ms)
+Completed 200 OK in 50ms (Views: 47.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/vehicles/1/edit" for 127.0.0.1 at 2018-10-23 15:58:35 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (9.6ms)
+Completed 200 OK in 86ms (Views: 80.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/vehicles/1/edit" for 127.0.0.1 at 2018-10-23 15:58:36 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 62ms (Views: 52.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/vehicles/1/edit" for 127.0.0.1 at 2018-10-23 15:58:42 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 60ms (Views: 55.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/vehicles/1/edit" for 127.0.0.1 at 2018-10-23 16:00:06 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (21.6ms)
+Completed 200 OK in 90ms (Views: 82.1ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/vehicles/1" for 127.0.0.1 at 2018-10-23 16:00:12 -0500
+Processing by VehiclesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ms22JDuXb3dBKDhn3TzC9aqkHZnmsowKmogDy1fNjajxUfUOHHOaBXkT6EkgJRP0+JpqDEcOCZ8FIqGoziaXVA==", "vehicle"=>{"name"=>"v1"}, "commit"=>"Update Vehicle Info", "id"=>"1"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:29
+Unpermitted parameters: :utf8, :_method, :authenticity_token, :vehicle, :commit, :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:00:12 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (12.4ms)
+Completed 200 OK in 58ms (Views: 51.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:00:25 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (28.4ms)
+Completed 200 OK in 123ms (Views: 114.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/vehicles/3" for 127.0.0.1 at 2018-10-23 16:00:33 -0500
+Processing by VehiclesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"N71vGLjmIQp9OZgvTGxT8qpXQDVw8/FLUXdv29vRDIBcISwynwLUeEUCSAGxdYLz+Gk3oNFPdN7O3c24QjoWfA==", "id"=>"3"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:36
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:37
+  [1m[36mVehicle Destroy (9.4ms)[0m  [1m[31mDELETE FROM "vehicles" WHERE "vehicles"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/vehicles_controller.rb:37
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:37
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 16ms (ActiveRecord: 10.5ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:00:33 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (7.9ms)
+Completed 200 OK in 48ms (Views: 40.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/vehicles/1/edit" for 127.0.0.1 at 2018-10-23 16:00:50 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (9.6ms)
+Completed 200 OK in 117ms (Views: 102.3ms | ActiveRecord: 0.2ms)
+
+
+Started PUT "/vehicles/1" for 127.0.0.1 at 2018-10-23 16:00:54 -0500
+Processing by VehiclesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0glbh1lCm02JFlya9e9g+bhtxKzP6sHGRl7Eb72LmC80NLZShA+IIeqh6cvuuHrR6vH5ae+MF6tHHIKS/M5Nyw==", "vehicle"=>{"name"=>"v1"}, "commit"=>"Update Vehicle Info", "id"=>"1"}
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:29
+Unpermitted parameters: :utf8, :_method, :authenticity_token, :vehicle, :commit, :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:00:54 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (7.4ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/vehicles/2/edit" for 127.0.0.1 at 2018-10-23 16:00:55 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mVehicle Load (0.1ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 71ms (Views: 64.1ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/vehicles/2" for 127.0.0.1 at 2018-10-23 16:00:58 -0500
+Processing by VehiclesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eLP5dBFSRWOU2SoWKS4JeZ8+eClH5I6ABMS1dLNi33TKBLi6vikUNvZw+A+G0Si6FbnPqeqvFsKLDtYt2NVVbQ==", "vehicle"=>{"name"=>"v2"}, "commit"=>"Update Vehicle Info", "id"=>"2"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:29
+Unpermitted parameters: :utf8, :_method, :authenticity_token, :vehicle, :commit, :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:00:58 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (9.1ms)
+Completed 200 OK in 49ms (Views: 44.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/vehicles/2/edit" for 127.0.0.1 at 2018-10-23 16:01:48 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (11.8ms)
+Completed 200 OK in 73ms (Views: 65.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/vehicles/2/edit" for 127.0.0.1 at 2018-10-23 16:02:03 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (7.5ms)
+Completed 200 OK in 76ms (Views: 68.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 16:03:39 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (19.2ms)
+Completed 200 OK in 122ms (Views: 110.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 16:05:08 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (16.5ms)
+Completed 200 OK in 104ms (Views: 97.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 16:05:11 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JCmN4mnoRq7X9CFVo3jVZQ8RU50mdqDcsxVnorwWPH5Ptc7ITgyz3O/P8XteYQRkXS8kCIfKJUksv8XBJf0mgg==", "vehicle"=>{"name"=>"v1"}, "commit"=>"Create Vehicle"}
+Unpermitted parameters: :utf8, :authenticity_token, :vehicle, :commit
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[36mVehicle Create (1.0ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-10-23 21:05:11.478722"], ["updated_at", "2018-10-23 21:05:11.478722"]]
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 20ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:05:11 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 51ms (Views: 47.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/vehicles/4" for 127.0.0.1 at 2018-10-23 16:05:13 -0500
+Processing by VehiclesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rZAJ3OV8I/CB0EesuwQSmhVkuwYnHzQ2Ih4wwfm+DDjGDEr2wpjWgrnrl4JGHcObR1rMk4ajsaO9tJKiYFUWxA==", "id"=>"4"}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:36
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:37
+  [1m[36mVehicle Destroy (1.0ms)[0m  [1m[31mDELETE FROM "vehicles" WHERE "vehicles"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/vehicles_controller.rb:37
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:37
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 15ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:05:13 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 56ms (Views: 48.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/vehicles/2" for 127.0.0.1 at 2018-10-23 16:05:14 -0500
+Processing by VehiclesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rzOJIyr5wgHN6589JqAS+ukmgGPBBRdEwxvFpZrRvHPEr8oJDR03c/XQTxPbucP7uxj39mC5ktFcsWfGAzqmjw==", "id"=>"2"}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:36
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:37
+  [1m[36mVehicle Destroy (0.4ms)[0m  [1m[31mDELETE FROM "vehicles" WHERE "vehicles"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/vehicles_controller.rb:37
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:37
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:05:14 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (12.5ms)
+Completed 200 OK in 114ms (Views: 108.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/vehicles/1" for 127.0.0.1 at 2018-10-23 16:05:15 -0500
+Processing by VehiclesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"a30F0Np7i8DtuAuwJF0Y1sXHUQL5+GSsgWE9SBWCYmEA4Ub6/Z9+stWD257ZRMnXl/kml1hE4Tkey58rjGl4nQ==", "id"=>"1"}
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:36
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:37
+  [1m[36mVehicle Destroy (1.1ms)[0m  [1m[31mDELETE FROM "vehicles" WHERE "vehicles"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/vehicles_controller.rb:37
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:37
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 21ms (ActiveRecord: 10.2ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:05:15 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (10.3ms)
+Completed 200 OK in 92ms (Views: 86.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 16:05:17 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 87ms (Views: 81.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 16:05:19 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jhamlQbUaqgpTAncIkyXMjTu4iWggqKZjntMYQBqIiJHtOjJCzanEjXtnchg3gvXKTiE60R7Mw1opZ0sEVhVLg==", "vehicle"=>{"name"=>"v1"}, "commit"=>"Create Vehicle"}
+Unpermitted parameters: :utf8, :authenticity_token, :vehicle, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[36mVehicle Create (0.5ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-10-23 21:05:19.853000"], ["updated_at", "2018-10-23 21:05:19.853000"]]
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 9ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:05:19 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 43ms (Views: 37.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/vehicles/5/edit" for 127.0.0.1 at 2018-10-23 16:05:22 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (10.8ms)
+Completed 200 OK in 67ms (Views: 59.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 16:05:28 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 73ms (Views: 70.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/vehicles/new" for 127.0.0.1 at 2018-10-23 16:05:56 -0500
+Processing by VehiclesController#new as HTML
+  Rendering vehicles/new.html.haml within layouts/application
+  Rendered vehicles/new.html.haml within layouts/application (4.2ms)
+Completed 200 OK in 93ms (Views: 88.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/vehicles" for 127.0.0.1 at 2018-10-23 16:06:02 -0500
+Processing by VehiclesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LBD3vXPo3n5WfFKopBqjcYeLexzu0SsFt7ThaYY7PmHlsrnhfgoTxErdxrzmiD+Uml0d0gooupFRajAklwlJbQ==", "vehicle"=>{"name"=>"joe"}, "commit"=>"Create Vehicle"}
+Unpermitted parameters: :utf8, :authenticity_token, :vehicle, :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[36mVehicle Create (0.9ms)[0m  [1m[32mINSERT INTO "vehicles" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2018-10-23 21:06:02.082564"], ["updated_at", "2018-10-23 21:06:02.082564"]]
+  ↳ app/controllers/vehicles_controller.rb:19
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:19
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 11ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:06:02 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (5.6ms)
+Completed 200 OK in 48ms (Views: 42.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/vehicles/6/edit" for 127.0.0.1 at 2018-10-23 16:06:04 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mVehicle Load (0.3ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:25
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (7.8ms)
+Completed 200 OK in 79ms (Views: 65.2ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/vehicles/6" for 127.0.0.1 at 2018-10-23 16:06:07 -0500
+Processing by VehiclesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZrAAjuexcxLLZDDh1NOy0kMwn+qynoVR0Newe2faspujy15v++M3vV4JMIldGeQGi9udkFzUTwNGRjBg0gj9/A==", "vehicle"=>{"name"=>"jeff"}, "commit"=>"Update Vehicle Info", "id"=>"6"}
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:29
+Unpermitted parameters: :utf8, :_method, :authenticity_token, :vehicle, :commit, :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:30
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 16:06:07 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:8
+  Rendered vehicles/index.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 45ms (Views: 39.6ms | ActiveRecord: 0.2ms)
+
+
