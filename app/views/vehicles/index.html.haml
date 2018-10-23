@@ -1,0 +1,14 @@
+%h1 All Vehicles
+
+%table#vehicles
+	%thead
+		%tr
+			%th Id
+	%tbody
+		- @vehicles.each do |vehicle|
+			%tr
+				%td= vehicle.id
+				%td= link_to 'Update', edit_vehicle_path(vehicle)
+				%td= button_to 'Delete', vehicle_path(vehicle), :method => :delete, :confirm => 'Are you sure?'
+
+= link_to 'Add New Vehicle', new_vehicle_path
