@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
 	def vehicle_params
-		params.require(:vehicle).permit(:id)
+		params.permit(:name)
 	end
 
 	def index

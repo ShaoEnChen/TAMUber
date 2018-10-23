@@ -1,5 +1,8 @@
-%h1 Edit Vehicle ${@vehicle.id}
+%h1 Edit Vehicle #{@vehicle.name}
 
 = form_tag vehicle_path(@vehicle), :method => :put do
 
-  = submit_tag 'Update Vehicle Info'
+	= label :vehicle, :name, 'Name'
+	= text_field :vehicle, 'name'
+
+	= submit_tag 'Update Vehicle Info'

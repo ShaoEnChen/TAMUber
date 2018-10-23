@@ -3,11 +3,11 @@
 %table#vehicles
 	%thead
 		%tr
-			%th Id
+			%th Name
 	%tbody
 		- @vehicles.each do |vehicle|
 			%tr
-				%td= vehicle.id
+				%td= vehicle.name
 				%td= link_to 'Update', edit_vehicle_path(vehicle)
 				%td= button_to 'Delete', vehicle_path(vehicle), :method => :delete, :confirm => 'Are you sure?'
 
