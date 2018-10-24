@@ -1,15 +1,18 @@
-Feature: Delete vehicle 
+Feature: Update vehicle 
 	
 	As an administrator
 	In order to manage the vehicles we have
-	I would like to delete vehicles to the database
+	I would like to update vehicles to the database
 	
 	Background:
 		Given the vehicle Car1 exist
 
-	Scenario: Successfully delete vehicle
+	Scenario: Successfully update vehicle
 		Given I am on the vehicles page
-		When I press "Delete"
-		Then I should see "was successfully deleted"
-
-    	
+		When I click "Update Car1"
+		Then I should see "Edit Vehicle Car1"
+		When I fill in "vehicle_name" with "Car2"
+		When I press "Update Vehicle Info"
+		Then I should be on the vehicles page
+		And I should see "Car2 was successfully updated"
+    		And I should see "Car2"
