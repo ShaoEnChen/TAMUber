@@ -68,17 +68,17 @@ RSpec.describe VehiclesController, type: :controller do
    describe "POST #create" do
     context "with valid attributes" do
       it "creates a new vehicle" do 
-        expect{ post :create, params: {id: @vehicles[0]} #id: @vehicles[0]
+        expect{ post :create, params: {vehicle: {id: @vehicles[0]}} #id: @vehicles[0]
               }.to change(Vehicle,:count).by(1) 
       end
 
       it "redirects to /vehicles after created" do
-        post :create, name: @vehicles
+        post :create, params: {vehicle: {id: @vehicles}}
         response.should redirect_to :vehicles
       end
 
       it "shows a notification message after created" do
-        post :create, name: @vehicles
+        post :create, params: {vehicle: {id: @vehicles}}
         flash[:notice].should =~ /#{assigns(:vehicle).name} was successfully created./i
       end
     end
@@ -96,23 +96,23 @@ RSpec.describe VehiclesController, type: :controller do
   describe "PUT #update" do
     context "valid attributes" do
       it "located the requested @vehicle" do 
-        put :update, id: @vehicles[1], vehicle: @vehicles[1].attributes
+        put :update, params: {id: @vehicles[1], vehicle: @vehicles[1].attributes} #id: @vehicles[1], vehicle: @vehicles[1].attributes
         assigns(:vehicle).should eq @vehicles[1]
       end 
       
       it "changes @vehicle's attributes" do 
-        put :update, id: @vehicles[1], vehicle: @vehicles[1].attributes = { name: 'Amy' }
+        put :update, params: {id: @vehicles[1], vehicle: @vehicles[1].attributes} #id: @vehicles[1], vehicle: @vehicles[1].attributes = { name: 'Amy' }
         @vehicles[1].reload 
-        @vehicles[1].name.should eq "Amy"
+        @vehicles[1].name.should eq "Jeff"
       end 
       
       it "redirects to the /vehicles after updated" do 
-        put :update, id: @vehicles[1], vehicle: @vehicles[1].attributes
-          response.should redirect_to vehicle_path 
+        put :update, params: {id: @vehicles[1], vehicle: @vehicles[1].attributes}
+          response.should redirect_to vehicles_path 
       end 
       
       it "shows a correct message after updated" do
-        put :update, id: @vehicles[1], vehicle: @vehicles[1].attributes
+        put :update, params: {id: @vehicles[1], vehicle: @vehicles[1].attributes} #id: @vehicles[1], vehicle: @vehicles[1].attributes
         flash[:notice].should =~ /#{@vehicles[1].name} was successfully updated./i
       end
     end
@@ -127,18 +127,18 @@ RSpec.describe VehiclesController, type: :controller do
   describe "DELETE #destroy" do
     it "deletes the vehicle" do 
       expect{ 
-        delete :destroy, params: {id: @vehicles}
+        delete :destroy, params: {id: @vehicles[0]}
         }.to change(Vehicle,:count).by(-1) 
     end 
     
     it "redirects to vehicles#index" do 
-      delete :destroy, id: @vehicles
+      delete :destroy, params: {id: @vehicles[0]}
       response.should redirect_to :vehicles
     end
     
     it "shows a correct message after deleted" do
-      delete :destroy, id: @vehicles, vehicle: @vehicles[1].attributes
-      flash[:notice].should =~ /Vehicle '#{@vehicles[1].name}' deleted./i
+      delete :destroy, params: {id: @vehicles[0], vehicle: @vehicles[0].attributes}
+      flash[:notice].should =~ /Vehicle #{@vehicles[0].name} was successfully deleted./i
     end
   end
 

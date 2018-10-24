@@ -32,7 +32,6 @@ class VehiclesController < ApplicationController
 	end
 
 	def update
-		@vehicle = Vehicle.find params[:id]
 		@vehicle.update_attributes!(vehicle_params)
 		flash[:notice] = "Vehicle #{@vehicle.name} was successfully updated."
 		redirect_to vehicles_path
