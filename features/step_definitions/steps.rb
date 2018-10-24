@@ -95,7 +95,9 @@ end
 When /^(?:|I )check "([^"]*)"$/ do |field|
   check(field)
 end
-
+When /^(?:|I )click "([^"]*)"$/ do |link|
+  click_link(link)
+end
 When /^(?:|I )uncheck "([^"]*)"$/ do |field|
   uncheck(field)
 end
