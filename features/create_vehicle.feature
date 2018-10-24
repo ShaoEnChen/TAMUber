@@ -9,7 +9,7 @@ Feature: create vehicle
 		When I click "Add New Vehicle"
 		Then I should be on the create new vehicle page
 		When I fill in "Name" with "Car1"
-    	And I press "Create Vehicle"
-    	Then I should be on the vehicles page
-    	Then I should see "Car1 was successfully created."
-    	And I should see "Car1"
+		And I press "Create Vehicle"
+		Then I should be on the vehicles page
+		Then I should see "Car1 was successfully created."
+		And I should see "Car1"
