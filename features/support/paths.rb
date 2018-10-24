@@ -15,7 +15,9 @@ module NavigationHelpers
 
     when /^the create new vehicle page$/
       '/vehicles/new'
-      
+
+    when /^the vehicles page$/
+      '/vehicles'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
