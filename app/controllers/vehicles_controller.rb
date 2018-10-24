@@ -21,7 +21,7 @@ class VehiclesController < ApplicationController
 
 	def create
 		@vehicle = Vehicle.create!(vehicle_params)
-		flash[:notice] = "Vehicle #{@vehicle.id} was successfully created."
+		flash[:notice] = "Vehicle #{@vehicle.name} was successfully created."
 		redirect_to vehicles_path
 	end
 
@@ -30,13 +30,13 @@ class VehiclesController < ApplicationController
 
 	def update
 		@vehicle.update_attributes!(vehicle_params)
-		flash[:notice] = "Vehicle #{@vehicle.id} was successfully updated."
+		flash[:notice] = "Vehicle #{@vehicle.name} was successfully updated."
 		redirect_to vehicles_path
 	end
 
 	def destroy
 		@vehicle.destroy
-		flash[:notice] = "Vehicle #{@vehicle.id} was successfully deleted."
+		flash[:notice] = "Vehicle #{@vehicle.name} was successfully deleted."
 		redirect_to vehicles_path
 	end
 end
