@@ -1,0 +1,94 @@
+{
+  "Cucumber Features": {
+    "coverage": {
+      "/Users/chieh-fu/Desktop/CSCE625/app/controllers/vehicles_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/chieh-fu/Desktop/CSCE625/app/controllers/application_controller.rb": [
+        1,
+        null
+      ],
+      "/Users/chieh-fu/Desktop/CSCE625/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/chieh-fu/Desktop/CSCE625/app/helpers/vehicles_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/chieh-fu/Desktop/CSCE625/app/models/vehicle.rb": [
+        1,
+        null
+      ],
+      "/Users/chieh-fu/Desktop/CSCE625/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/chieh-fu/Desktop/CSCE625/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/chieh-fu/Desktop/CSCE625/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/chieh-fu/Desktop/CSCE625/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/chieh-fu/Desktop/CSCE625/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1540354427
+  }
+}
