@@ -1962,3 +1962,48 @@ Processing by VehiclesController#index as HTML
 Completed 200 OK in 72ms (Views: 64.5ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-10-23 23:38:33 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/seanchen/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.6ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:10
+  Rendered vehicles/index.html.haml within layouts/application (32.2ms)
+Completed 200 OK in 382ms (Views: 344.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/vehicles/3/edit" for 127.0.0.1 at 2018-10-23 23:38:44 -0500
+Processing by VehiclesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mVehicle Load (0.4ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:5
+  Rendering vehicles/edit.html.haml within layouts/application
+  Rendered vehicles/edit.html.haml within layouts/application (11.4ms)
+Completed 200 OK in 102ms (Views: 90.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/vehicles/3" for 127.0.0.1 at 2018-10-23 23:38:46 -0500
+Processing by VehiclesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AajEE6wlXngis4mKkTiPFc7+t+XTNA+1BObltAs4dklqNIc5i8GrChqIWaRsIV4UnMDAcHKIiiCbTEfXktNstQ==", "id"=>"3"}
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT  "vehicles".* FROM "vehicles" WHERE "vehicles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/vehicles_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:38
+  [1m[36mVehicle Destroy (0.7ms)[0m  [1m[31mDELETE FROM "vehicles" WHERE "vehicles"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/vehicles_controller.rb:38
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/vehicles_controller.rb:38
+Redirected to http://localhost:3000/vehicles
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/vehicles" for 127.0.0.1 at 2018-10-23 23:38:47 -0500
+Processing by VehiclesController#index as HTML
+  Rendering vehicles/index.html.haml within layouts/application
+  [1m[36mVehicle Load (0.2ms)[0m  [1m[34mSELECT "vehicles".* FROM "vehicles"[0m
+  ↳ app/views/vehicles/index.html.haml:10
+  Rendered vehicles/index.html.haml within layouts/application (7.0ms)
+Completed 200 OK in 47ms (Views: 40.5ms | ActiveRecord: 0.2ms)
+
+
