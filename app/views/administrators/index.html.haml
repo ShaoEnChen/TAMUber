@@ -1,0 +1,17 @@
+%h1 All Administrators
+
+%h3 #{flash[:notice]}
+
+%table#vehicles
+	%thead
+		%tr
+			%th Name
+	%tbody
+		- @administrators.each do |administrator|
+			%tr
+				%td= administrator.name
+				%td= link_to 'Update ' + administrator.name, edit_administrator_path(administrator)
+				%td= button_to 'Delete ' + administrator.name, administrator_path(administrator), :method => :delete, :confirm => 'Are you sure?'
+
+= link_to 'Add New Administrator', new_administrator_path
+= link_to 'Back to Homepage', root_path
