@@ -70,6 +70,10 @@ Given(/^the vehicle (.+) exist$/) do |c|
 	Vehicle.create!(car)
 end
 
+Given(/^the administrator (.+) exist$/) do |c|
+  administrator = {:name => c, :account => c, :password => '1234'}
+  Administrator.create!(administrator)
+end
 
 # Use this to fill in an entire form with data from a table. Example:
 #

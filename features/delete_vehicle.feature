@@ -8,7 +8,9 @@ Feature: Delete vehicle
 		Given the vehicle Car1 exist
 
 	Scenario: Successfully delete vehicle
-		Given I am on the vehicles page
+		Given I am on the homepage
+		When I click "Vehicles"
+		Then I should be on the vehicles page
 		When I press "Delete Car1"
 		Then I should see "Car1 was successfully deleted"
     	
