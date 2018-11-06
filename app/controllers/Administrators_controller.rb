@@ -17,8 +17,6 @@ class AdministratorsController < ApplicationController
 	end
 
 	def show
-		id = params[:id] # retrieve movie ID from URI route
-    	@administrator = Administrator.find(id) # look up mov ie by unique ID
 	end
 
 	def create

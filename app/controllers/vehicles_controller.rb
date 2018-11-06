@@ -17,8 +17,6 @@ class VehiclesController < ApplicationController
 	end
 
 	def show
-		id = params[:id] # retrieve movie ID from URI route
-    	@vehicle = Vehicle.find(id) # look up mov ie by unique ID
 	end
 
 	def create
@@ -28,7 +26,6 @@ class VehiclesController < ApplicationController
 	end
 
 	def edit
-		@movie = Vehicle.find params[:id]
 	end
 
 	def update
