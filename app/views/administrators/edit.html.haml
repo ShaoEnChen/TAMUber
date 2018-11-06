@@ -1,8 +1,0 @@
-%h1 Edit Administrator #{@administrator.name}
-
-= form_tag administrator_path(@administrator), :method => :put do
-
-	= label :administrator, :name, 'Name'
-	= text_field :administrator, :name
-
-	= submit_tag 'Update Administrator Info'
