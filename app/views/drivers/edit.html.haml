@@ -1,0 +1,8 @@
+%h1 Edit Driver #{@driver.name}
+
+= form_tag driver_path(@driver), :method => :put do
+
+	= label :driver, :name, 'Name'
+	= text_field :driver, :name
+
+	= submit_tag 'Update Driver Info'
