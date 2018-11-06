@@ -5,7 +5,9 @@ Feature: create vehicle
 	I would like to create vehicles to the database
 	
 	Scenario: Successfully create vehicle
-		Given I am on the vehicles page
+		Given I am on the homepage
+		When I click "Vehicles"
+		Then I should be on the vehicles page
 		When I click "Add New Vehicle"
 		Then I should be on the create new vehicle page
 		When I fill in "Name" with "Car1"
