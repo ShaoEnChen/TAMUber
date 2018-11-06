@@ -1,0 +1,8 @@
+%h1 Create New Driver
+
+= form_tag drivers_path do
+
+	= label :driver, :name, 'Name'
+	= text_field :driver, :name
+
+	= submit_tag 'Create Driver'
