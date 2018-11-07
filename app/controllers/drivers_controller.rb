@@ -1,5 +1,5 @@
 class DriversController < ApplicationController
- 
+	before_action :authenticate_user!
 	before_action :get_driver, :only => [:show, :edit, :update, :destroy]
 
 	def get_driver
@@ -29,7 +29,7 @@ class DriversController < ApplicationController
 	end
 
 	def edit
-		@movie = Driver.find params[:id]
+		@driver = Driver.find params[:id]
 	end
 
 	def update
