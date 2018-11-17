@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # Build google map API
 gem 'gmaps4rails'
 
+gem 'jquery-rails'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

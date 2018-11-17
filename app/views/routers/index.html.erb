@@ -46,12 +46,28 @@ function calcRoute() {
       //map = new google.maps.Map(document.getElementById('map'), mapProp);
 
       for (var i = 0; i < cooridinate.length; i++) {
-          makeMarker( cooridinate[i], "title" );
+          // Directly set marker
+          //makeMarker( cooridinate[i], "title" );
+          
+          // Set marker based on DB 
+          if (i%50==0){
+            $.ajax({
+                  type:    "POST",
+                  url:     "routers/add_db",
+                  data:    { router: {name: "temp"+i, latitude: cooridinate[i].lat(), longitude: cooridinate[i].lng()} },
+                  success: function(post){ console.log('success') },
+                  error:   function(post){ console.log(this) }
+            })
+          }
+          /*$.ajax({
+            type:    "POST",
+            url:     "http://localhost:3000/routers/",
+            data:    { cooridinate: cooridinate[i].lng() },
+            success: function(post){ console.log('success') },
+            error:   function(post){ console.log(this) }
+          })*/
+          //$("#s_ip").val(cooridinate[i]) cooridinate: cooridinate[i].lat()
       } 
-
-      
-      //makeMarker( cooridinate[100], 'title' );
-      //makeMarker(cooridinate[265], 'title')
     }
     else {
             window.alert('Directions request failed due to ' + status);
@@ -87,6 +103,8 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 </script>
 
 <p id="notice"><%= notice %></p>
+<!-- Send IP address to controller -->
+<%= hidden_field_tag 's[ip]'%> 
 
 <h1>Routers</h1>
 

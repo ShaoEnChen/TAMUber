@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 	devise_for :users
 	root  'homepage#index'
 	resources :vehicles, :drivers
+	post 'routers/add_db' => 'routers#add_db', :as => :add_db
 end

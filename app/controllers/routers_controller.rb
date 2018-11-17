@@ -1,4 +1,5 @@
 class RoutersController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :set_router, only: [:show, :edit, :update, :destroy]
 
   #Add load_routers and replaced index with the code below
@@ -36,6 +37,8 @@ class RoutersController < ApplicationController
     load_routers  
 
     @routers = Router.all
+
+    #@venues = eval(params[:s]["ip"])
   end
 
   # GET /routers/1
@@ -68,6 +71,11 @@ class RoutersController < ApplicationController
     end
   end
 
+  def add_db
+    @router = Router.new(router_params)
+    @router.save
+    #redirect_to routers_path
+  end
   # PATCH/PUT /routers/1
   # PATCH/PUT /routers/1.json
   def update
