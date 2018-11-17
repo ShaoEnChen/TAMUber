@@ -78,12 +78,12 @@ handler.buildMap({ internal: {id: 'map'}}, function(){
 
 //console.log(cooridinate);
 
-/*handler = Gmaps.build('Google');  
+handler = Gmaps.build('Google');  
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
     markers = handler.addMarkers(<%=raw @routers_default.to_json %>);  
     handler.bounds.extendWith(markers);  
     handler.fitMapToBounds();  
-});*/  
+}); 
 </script>
 
 <p id="notice"><%= notice %></p>
