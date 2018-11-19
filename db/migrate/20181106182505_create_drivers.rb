@@ -2,7 +2,8 @@ class CreateDrivers < ActiveRecord::Migration[5.2]
   def change
     create_table :drivers do |t|
       t.string :name
-
+      t.boolean :isAvaliable, :default => true
+      
       t.timestamps
     end
   end

@@ -6,10 +6,14 @@
 	%thead
 		%tr
 			%th Name
+			%th Plate Number
+			%th Is Avaliable
 	%tbody
 		- @vehicles.each do |vehicle|
 			%tr
 				%td= vehicle.name
+				%td= vehicle.plateNumber
+				%td= vehicle.isAvaliable
 				%td= link_to 'Update ' + vehicle.name, edit_vehicle_path(vehicle)
 				%td= button_to 'Delete ' + vehicle.name, vehicle_path(vehicle), :method => :delete, :confirm => 'Are you sure?'
 
