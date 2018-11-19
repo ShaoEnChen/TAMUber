@@ -160,7 +160,7 @@
   },
   "RSpec": {
     "coverage": {
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/models/user.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/models/user.rb": [
         1,
         null,
         null,
@@ -168,95 +168,28 @@
         null,
         null
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/models/application_record.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/helpers/application_helper.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/helpers/drivers_helper.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/helpers/drivers_helper.rb": [
         1,
         null
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/helpers/users_helper.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/helpers/vehicles_helper.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/helpers/vehicles_helper.rb": [
         1,
         null
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/controllers/drivers_controller.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        7,
-        null,
-        null,
-        1,
-        6,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        3,
-        3,
-        3,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        3,
-        3,
-        3,
-        null,
-        null,
-        1,
-        3,
-        3,
-        3,
-        null,
-        null
-      ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/controllers/application_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null
-      ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/controllers/users_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/controllers/vehicles_controller.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/controllers/vehicles_controller.rb": [
         1,
         1,
         1,
@@ -301,29 +234,39 @@
         null,
         null
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/models/driver.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/models/vehicle.rb": [
         1,
         null
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/models/vehicle.rb": [
-        1,
-        null
-      ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/mailers/application_mailer.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/models/homepage.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/models/homepage.rb": [
         0,
         0
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/jobs/application_job.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/models/driver.rb": [
         0,
         0
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/controllers/homepage_controller.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/controllers/homepage_controller.rb": [
         0,
         0,
         null,
@@ -331,19 +274,76 @@
         0,
         0
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/channels/application_cable/connection.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/controllers/users_controller.rb": [
+        0,
+        0,
+        null,
         0,
         0,
         0,
         0
       ],
-      "/Users/chouyimin/Documents/Software_Engineering/TAMUber/app/channels/application_cable/channel.rb": [
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/controllers/drivers_controller.rb": [
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/yangchuya/Documents/tamu/software_engineering/TAMUber/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1541630173
+    "timestamp": 1541649161
   }
 }
