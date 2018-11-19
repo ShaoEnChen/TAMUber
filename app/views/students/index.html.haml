@@ -1,0 +1,27 @@
+%h1 All Students
+
+%h3 #{flash[:notice]}
+
+%table#students
+  %thead
+    %tr
+      %th Name
+      %th Student ID
+      %th Start Latitude
+      %th Start Longitude
+      %th End Latitude
+      %th End Longitude
+  %tbody
+    - @students.each do |student|
+      %tr
+        %td= student.name
+        %td= student.studentId
+        %td= student.startLat
+        %td= student.startLng
+        %td= student.endLat
+        %td= student.endLng
+        %td= link_to 'Update ' + student.name, edit_student_path(student)
+        %td= button_to 'Delete ' + student.name, student_path(student), :method => :delete, :confirm => 'Are you sure?'
+
+= link_to 'Add New Student', new_student_path
+= link_to 'Back to Homepage', root_path

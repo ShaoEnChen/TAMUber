@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_205751) do
+ActiveRecord::Schema.define(version: 2018_11_19_050509) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "studentId"
+    t.float "startLat"
+    t.float "startLng"
+    t.float "endLat"
+    t.float "endLng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
