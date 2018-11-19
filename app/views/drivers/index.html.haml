@@ -6,10 +6,12 @@
 	%thead
 		%tr
 			%th Name
+			%th Is_avaliable
 	%tbody
 		- @drivers.each do |driver|
 			%tr
 				%td= driver.name
+				%td= driver.isAvaliable
 				%td= link_to 'Update ' + driver.name, edit_driver_path(driver)
 				%td= button_to 'Delete ' + driver.name, driver_path(driver), :method => :delete, :confirm => 'Are you sure?'
 

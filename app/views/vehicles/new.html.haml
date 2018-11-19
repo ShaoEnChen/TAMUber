@@ -2,7 +2,11 @@
 
 = form_tag vehicles_path do
 
-	= label :vehicle, :name, 'Name'
+
+	= label :vehicle, :name, 'Plate Number'
 	= text_field :vehicle, :name
+
+	= label :vehicle, :isAvaliable, 'Is_avaliable'
+	= text_field :vehicle, :isAvaliable
 
 	= submit_tag 'Create Vehicle'
