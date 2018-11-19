@@ -10,6 +10,14 @@ class RequestsController < ApplicationController
 		params.require(:request).permit(:name,:studentId,:startLat,:startLng,:endLat,:endLng)
 	end
 
+	def driver_params
+		params.require(:driver).permit(:name,:isAvaliable)
+	end
+
+	def vehicle_params
+		params.require(:vehicle).permit(:name,:isAvaliable)
+	end
+
 	def index
 		@requests = Request.all
 	end
@@ -21,9 +29,37 @@ class RequestsController < ApplicationController
 	end
 
 	def create
-		@request = Request.create!(request_params)
-		flash[:notice] = "Request #{@request.name} was successfully created."
-		redirect_to requests_path
+		@driver = Driver.where("drivers.isAvaliable IS NOT FALSE").first
+		@vehicle = Vehicle.where("vehicles.isAvaliable IS NOT FALSE").first
+		if(@driver==nil || @vehicle==nil)
+			flash[:notice] = "No avaliable drivers or vehicles."
+			redirect_to requests_path
+		else
+			#need to set vehicle start point
+			@request = Request.create!(request_params)
+			onduty_dic={}
+			onduty_dic["driverName"] = @driver.name
+			onduty_dic["plateNumber"] = @vehicle.name
+			onduty_dic["studentName"] = @request.name
+			onduty_dic["studentId"] = @request.studentId
+			onduty_dic["vehicleLat"] = 007
+			onduty_dic["vehicleLng"] = 007
+			onduty_dic["startLat"] = @request.startLat
+			onduty_dic["startLng"] = @request.startLng
+			onduty_dic["endLat"] = @request.endLat
+			onduty_dic["endLng"] = @request.endLng
+			onduty_dic["isFinished"] = false
+		
+			@request_to_onduty = Onduty.create!(onduty_dic)
+
+			@driver.isAvaliable = false
+			@vehicle.isAvaliable = false
+			@driver.save
+			@vehicle.save
+
+			flash[:notice] = "Request #{@request.name} was successfully created."
+			redirect_to requests_path
+		end
 	end
 
 	def edit

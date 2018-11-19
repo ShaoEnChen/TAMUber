@@ -2,11 +2,8 @@
 
 = form_tag vehicle_path(@vehicle), :method => :put do
 
-	= label :vehicle, :name, 'Name'
+	= label :vehicle, :name, 'Plate Number'
 	= text_field :vehicle, :name
-
-	= label :vehicle, :plateNumber, 'Plate Number'
-	= text_field :vehicle, :plateNumber
 
 	= label :vehicle, :isAvaliable, 'Is_avaliable'
 	= text_field :vehicle, :isAvaliable
