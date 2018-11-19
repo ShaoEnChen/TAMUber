@@ -1,9 +1,16 @@
+= javascript_include_tag 'gmap'
+
 %h1 All Onduties
 
 %h3 #{flash[:notice]}
 
+%div{:style => "width: 800px;", :id => "map"}
+
+
 %table#Onduties
 	%thead
+		
+  	
 		%tr
 			%th DriverName
 			%th PlateNumber

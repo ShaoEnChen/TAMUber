@@ -1,0 +1,92 @@
+<div style='width: 800px;'>  
+  <div id="map" style='width: 800px; height: 400px;'></div>  
+</div>  
+
+<script type="text/javascript">  
+handler = Gmaps.build('Google');  
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
+  markers = handler.addMarkers([  
+    {  
+      "lat": 30.619703,  
+      "lng": -96.334977, 
+      "picture": {  
+        "width":  180,  
+        "height": 32  
+      },  
+      "infowindow": "A&M"  
+    }  
+  ]);  
+  handler.bounds.extendWith(markers);  
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(16);  
+});  
+</script>
+
+<h1>All Onduties</h1>
+
+<p id="notice"><%= notice %></p>
+
+<table id="Onduties">
+  <thead>
+    <tr>
+      <th>DriverName</th>
+      <th>PlateNumber</th>
+      <th>StudentName</th>
+      <th>StudentId</th>
+      <th>VehicleLat</th>
+      <th>VehicleLng</th>
+      <th>Startlat</th>
+      <th>Startlng</th>
+      <th>Endlat</th>
+      <th>Endlng</th>
+      <th>isFinished</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @onduties.each do |onduty| %>
+      <tr>
+        <td>
+          <%= onduty.driverName %>
+        </td>
+        <td>
+          <%= onduty.plateNumber %>
+        </td>
+        <td>
+          <%= onduty.studentName %>
+        </td>
+        <td>
+          <%= onduty.studentId %>
+        </td>
+        <td>
+          <%= onduty.vehicleLat %>
+        </td>
+        <td>
+          <%= onduty.vehicleLng %>
+        </td>
+        <td>
+          <%= onduty.startLat %>
+        </td>
+        <td>
+          <%= onduty.startLng %>
+        </td>
+        <td>
+          <%= onduty.endLat %>
+        </td>
+        <td>
+          <%= onduty.endLng %>
+        </td>
+        <td>
+          <%= onduty.isFinished %>
+        </td>
+        <td>
+          <%= link_to 'Update ' + onduty.driverName, edit_onduty_path(onduty) %>
+        </td>
+        <td>
+          <%= button_to 'Delete ' + onduty.driverName, onduty_path(onduty), :method => :delete, :confirm => 'Are you sure?' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add New Onduty', new_onduty_path %>
+<%= link_to 'Back to Homepage', root_path %>
