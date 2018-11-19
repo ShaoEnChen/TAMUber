@@ -1,0 +1,23 @@
+%h1 Create New Request
+
+= form_tag requests_path do
+
+	= label :request, :name, 'Name'
+	= text_field :request, :name
+
+	= label :request, :studentId, 'StudentId'
+	= text_field :request, :studentId
+
+	= label :request, :startLat, 'StartLat'
+	= text_field :request, :startLat
+
+	= label :request, :startLng, 'StartLng'
+	= text_field :request, :startLng
+
+	= label :request, :endLat, 'EndLat'
+	= text_field :request, :endLat
+
+	= label :request, :endLng, 'EndLng'
+	= text_field :request, :endLng
+
+	= submit_tag 'Create Request'
