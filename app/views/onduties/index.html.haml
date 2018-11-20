@@ -1,4 +1,5 @@
-%h1 All Onduties
+%div{ :style => "width: 800px;" }
+	#map{ :style => "width: 800px; height: 400px;" }
 
 %h3 #{flash[:notice]}
 
@@ -32,9 +33,34 @@
 				%td= onduty.endLng
 				%td= onduty.isFinished
 
+= link_to 'View Admins', users_index_path
+= link_to 'View Vehicles', vehicles_path
+= link_to 'View Drivers', drivers_path
+= link_to 'View Requests', requests_path
 
-				%td= link_to 'Update ' + onduty.driverName, edit_onduty_path(onduty)
-				%td= button_to 'Delete ' + onduty.driverName, onduty_path(onduty), :method => :delete, :confirm => 'Are you sure?'
+%script{ :src => "//maps.google.com/maps/api/js?key=AIzaSyCLRQ5YdbKITiUMTRPq1oAhPNR2Oup-d7c" }
+%script{ :src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js" }
+%script{ :src => "//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" }
+%script{ :src => "//underscorejs.org/underscore-min.js" }
 
-= link_to 'Add New Onduty', new_onduty_path
-= link_to 'Back to Homepage', root_path
+:javascript
+	handler = Gmaps.build('Google');
+	handler.buildMap({
+		provider: {},
+		internal: { id: 'map' }
+	}, () => {
+		markers = handler.addMarkers([
+			{
+				"lat": 30.619703,
+				"lng": -96.334977,
+				"picture": {
+					"width":  180,
+					"height": 32
+				},
+				"infowindow": "A&M"
+			}
+		]);
+		handler.bounds.extendWith(markers);
+		handler.fitMapToBounds();
+		handler.getMap().setZoom(16);
+	});

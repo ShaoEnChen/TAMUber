@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 	get 'users/index'
 	devise_for :users
-	root  'homepage#index'
+	root  'onduties#index'
 	resources :vehicles, :drivers, :requests, :onduties
 end
