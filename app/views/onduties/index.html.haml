@@ -38,23 +38,25 @@
 = link_to 'View Requests', requests_path
 
 :javascript
-	handler = Gmaps.build('Google');
+	let duties = #{ @onduties.to_json.html_safe };
+	let handler = Gmaps.build('Google');
 	handler.buildMap({
 		provider: {},
 		internal: { id: 'map' }
 	}, () => {
-		markers = handler.addMarkers([
-			{
-				"lat": 30.619703,
-				"lng": -96.334977,
-				"picture": {
-					"width":  180,
-					"height": 32
-				},
-				"infowindow": "A&M"
-			}
-		]);
+		markers = handler.addMarkers(duties.map(duty => getVehicleMarker(duty)));
 		handler.bounds.extendWith(markers);
 		handler.fitMapToBounds();
-		handler.getMap().setZoom(16);
 	});
+
+	function getVehicleMarker(duty) {
+		return {
+			"lat": duty.vehicleLat,
+			"lng": duty.vehicleLng,
+			"picture": {
+				"width":  180,
+				"height": 32
+			},
+			"infowindow": ""
+		};
+	}
