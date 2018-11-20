@@ -1,0 +1,77 @@
+<h1>All Onduties</h1>
+
+<p id="notice"><%= notice %></p>
+
+<table id="Onduties">
+  <thead>
+    <tr>
+      <th>DriverName</th>
+      <th>PlateNumber</th>
+      <th>StudentName</th>
+      <th>StudentId</th>
+      <th>VehicleLat</th>
+      <th>VehicleLng</th>
+      <th>Startlat</th>
+      <th>Startlng</th>
+      <th>Endlat</th>
+      <th>Endlng</th>
+      <th>isFinished</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @onduties.each do |onduty| %>
+      <tr>
+        <td>
+          <%= onduty.driverName %>
+        </td>
+        <td>
+          <%= onduty.plateNumber %>
+        </td>
+        <td>
+          <%= onduty.studentName %>
+        </td>
+        <td>
+          <%= onduty.studentId %>
+        </td>
+        <td>
+          <%= onduty.vehicleLat %>
+        </td>
+        <td>
+          <%= onduty.vehicleLng %>
+        </td>
+        <td>
+          <%= onduty.startLat %>
+        </td>
+        <td>
+          <%= onduty.startLng %>
+        </td>
+        <td>
+          <%= onduty.endLat %>
+        </td>
+        <td>
+          <%= onduty.endLng %>
+        </td>
+        <td>
+          <%= onduty.isFinished %>
+        </td>
+        <td><%= link_to 'Run', onduty_path(onduty) %></td>
+        <td>
+          <%= link_to 'Update ' + onduty.driverName, edit_onduty_path(onduty) %>
+        </td>
+        <td>
+          <%= button_to 'Delete ' + onduty.driverName, onduty_path(onduty), :method => :delete, :confirm => 'Are you sure?' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add New Onduty', new_onduty_path %>
+<%= link_to 'Back to Homepage', root_path %>
+
+<script type="text/javascript">
+  function call_update_page(id) {
+    url = "/onduties/" + id;
+    window.open(url,'_blank');
+  }
+</script>
