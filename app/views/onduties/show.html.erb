@@ -1,7 +1,7 @@
 <div style='width: 800px;'>  
   <div id="map" style='width: 800px; height: 400px;'></div>  
 </div>  
-
+<strong>update status: </strong><a id="info">getting data</a>
 <script type="text/javascript">  
 var map;
 
@@ -45,29 +45,7 @@ function calcRoute() {
       };*/
       //map = new google.maps.Map(document.getElementById('map'), mapProp);
 
-      for (var i = 0; i < cooridinate.length; i++) {
-          // Directly set marker
-          //makeMarker( cooridinate[i], "title" );
-          
-          // Set marker based on DB 
-          if (i%50==0){
-              /*$.ajax({
-                  type:    "POST",
-                  url:     "routers/add_db",
-                  data:    { router: {name: "temp"+i, latitude: cooridinate[i].lat(), longitude: cooridinate[i].lng()} },
-                  success: function(post){ console.log('success') },
-                  error:   function(post){ console.log(this) }
-            })*/
-          }
-          /*$.ajax({
-            type:    "POST",
-            url:     "http://localhost:3000/routers/",
-            data:    { cooridinate: cooridinate[i].lng() },
-            success: function(post){ console.log('success') },
-            error:   function(post){ console.log(this) }
-          })*/
-          //$("#s_ip").val(cooridinate[i]) cooridinate: cooridinate[i].lat()
-      }  
+
 
     }
     else {
@@ -84,9 +62,45 @@ function makeMarker( position, title ) {
  });
 }
 
-
 calcRoute(); // call this anywhere you want
 
+var index = 0;
+console.log("Start");
+setTimeout(updateCarPos, 5000);
+function updateCarPos() {
+  i = index;
+  document.getElementById("info").innerHTML = i + 1 + "/" + cooridinate.length;
+  var id = <%=@onduty.id%>;
+    console.log("update location" + i);
+    // Directly set marker
+    //makeMarker( cooridinate[i], "title" );
+    // Set marker based on DB 
+    $.ajax({
+            type:    "POST",
+            url:     "<%=update_car_pos_path%>",
+            data:    {id: id, lat: cooridinate[i].lat(), lng: cooridinate[i].lng()},
+            success: function(post){ console.log('success') },
+            error:   function(post){ console.log(this) }
+      })
+    //await sleep(3000);
+    /*$.ajax({
+      type:    "POST",
+      url:     "http://localhost:3000/routers/",
+      data:    { cooridinate: cooridinate[i].lng() },
+      success: function(post){ console.log('success') },
+      error:   function(post){ console.log(this) }
+    })*/
+    //$("#s_ip").val(cooridinate[i]) cooridinate: cooridinate[i].lat()
+    document.getElementById("vehicleLat").innerHTML = cooridinate[i].lat();
+    document.getElementById("vehicleLng").innerHTML = cooridinate[i].lng();
+    index += 1;
+    if (index < cooridinate.length) setTimeout(updateCarPos, 3000);
+    else {
+      console.log("Finish");
+      document.getElementById("isFinished").innerHTML = "Ture";
+      window.close();
+    } 
+}
 
 var handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'map'}}, function(){
@@ -147,12 +161,12 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
 <p>
   <strong>vehicleLat:</strong>
-  <%= @onduty.vehicleLat%>
+  <a id = 'vehicleLat'><%= @onduty.vehicleLat%></a>
 </p>
 
 <p>
   <strong>vehicleLng:</strong>
-  <%= @onduty.vehicleLng%>
+  <a id = 'vehicleLng'><%= @onduty.vehicleLng%></a>
 </p>
 
 <p>
@@ -177,7 +191,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
 <p>
   <strong>isFinished:</strong>
-  <%= @onduty.isFinished%>
+  <a id = 'isFinished'><%= @onduty.isFinished%></a>
 </p>
 
 <%= link_to 'Back', onduties_path%>

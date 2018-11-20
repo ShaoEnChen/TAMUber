@@ -68,3 +68,10 @@
 
 <%= link_to 'Add New Onduty', new_onduty_path %>
 <%= link_to 'Back to Homepage', root_path %>
+
+<script type="text/javascript">
+  function call_update_page(id) {
+    url = "/onduties/" + id;
+    window.open(url,'_blank');
+  }
+</script>

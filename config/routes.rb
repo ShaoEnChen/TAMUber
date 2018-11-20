@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 	devise_for :users
 	root  'homepage#index'
 	resources :vehicles, :drivers, :requests, :onduties
+	post 'onduties/update_car_pos' => 'onduties#update_car_pos', :as => :update_car_pos
 end
