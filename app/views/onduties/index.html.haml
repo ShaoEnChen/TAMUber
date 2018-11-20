@@ -44,7 +44,11 @@
 		provider: {},
 		internal: { id: 'map' }
 	}, () => {
-		markers = handler.addMarkers(duties.map(duty => getVehicleMarker(duty)));
+		markers = handler.addMarkers(
+			duties
+				.filter(duty => duty.isFinished == false)
+				.map(duty => getVehicleMarker(duty))
+		);
 		handler.bounds.extendWith(markers);
 		handler.fitMapToBounds();
 	});
@@ -57,6 +61,23 @@
 				"width":  180,
 				"height": 32
 			},
-			"infowindow": ""
+			"infowindow": getInfoWindow(duty)
 		};
+	}
+
+	function getInfoWindow(duty) {
+		let infoWindow = "";
+		let vehicle = getHTMLTagString("p", "Vehicle#", `${duty.plateNumber}`);
+		infoWindow += vehicle;
+		let dName = getHTMLTagString("p", "Driver Name", `${duty.driverName}`);
+		infoWindow += dName;
+		let sName = getHTMLTagString("p", "Student Name", `${duty.studentName}`);
+		infoWindow += sName;
+		let sID = getHTMLTagString("p", "Student ID", `${duty.studentId}`);
+		infoWindow += sID;
+		return infoWindow;
+	}
+
+	function getHTMLTagString(tag, title, content) {
+		return `<${tag}><b>${title}:</b> ${content}</${tag}>`;
 	}
