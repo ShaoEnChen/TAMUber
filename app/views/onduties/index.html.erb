@@ -1,27 +1,3 @@
-<div style='width: 800px;'>  
-  <div id="map" style='width: 800px; height: 400px;'></div>  
-</div>  
-
-<script type="text/javascript">  
-handler = Gmaps.build('Google');  
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
-  markers = handler.addMarkers([  
-    {  
-      "lat": 30.619703,  
-      "lng": -96.334977, 
-      "picture": {  
-        "width":  180,  
-        "height": 32  
-      },  
-      "infowindow": "A&M"  
-    }  
-  ]);  
-  handler.bounds.extendWith(markers);  
-  handler.fitMapToBounds();
-  handler.getMap().setZoom(16);  
-});  
-</script>
-
 <h1>All Onduties</h1>
 
 <p id="notice"><%= notice %></p>
@@ -78,6 +54,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
         <td>
           <%= onduty.isFinished %>
         </td>
+        <td><%= link_to 'Run', onduty_path(onduty) %></td>
         <td>
           <%= link_to 'Update ' + onduty.driverName, edit_onduty_path(onduty) %>
         </td>
@@ -88,5 +65,6 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     <% end %>
   </tbody>
 </table>
+
 <%= link_to 'Add New Onduty', new_onduty_path %>
 <%= link_to 'Back to Homepage', root_path %>
