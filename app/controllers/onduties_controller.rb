@@ -1,4 +1,5 @@
 class OndutiesController < ApplicationController
+	skip_before_action :verify_authenticity_token
 	before_action :authenticate_user!
 	before_action :get_onduty, :only => [:show, :edit, :update, :destroy]
 
@@ -39,5 +40,12 @@ class OndutiesController < ApplicationController
 		@onduty.destroy
 		flash[:notice] = "Onduty #{@onduty.id} was successfully deleted."
 		redirect_to onduties_path
+	end
+
+	def update_car_pos
+		onduty = Onduty.find_by_id(params[:id])
+		att = {:vehicleLng => params[:lng], :vehicleLat => params[:lat]}
+		onduty.update_attributes!(att)
+
 	end
 end
