@@ -42,14 +42,14 @@ class RequestsController < ApplicationController
 			onduty_dic["plateNumber"] = @vehicle.name
 			onduty_dic["studentName"] = @request.name
 			onduty_dic["studentId"] = @request.studentId
-			onduty_dic["vehicleLat"] = 007
-			onduty_dic["vehicleLng"] = 007
+			onduty_dic["vehicleLat"] = @request.startLat
+			onduty_dic["vehicleLng"] = @request.startLng
 			onduty_dic["startLat"] = @request.startLat
 			onduty_dic["startLng"] = @request.startLng
 			onduty_dic["endLat"] = @request.endLat
 			onduty_dic["endLng"] = @request.endLng
 			onduty_dic["isFinished"] = false
-		
+
 			@request_to_onduty = Onduty.create!(onduty_dic)
 
 			@driver.isAvaliable = false

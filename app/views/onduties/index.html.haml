@@ -1,0 +1,85 @@
+#map
+
+%h3 #{flash[:notice]}
+
+%table#Onduties
+	%thead
+		%tr
+			%th ID
+			%th DriverName
+			%th PlateNumber
+			%th StudentName
+			%th StudentId
+			%th VehicleLat
+			%th VehicleLng
+			%th Startlat
+			%th Startlng
+			%th Endlat
+			%th Endlng
+			%th isFinished
+
+	%tbody
+		- @onduties.each do |onduty|
+			%tr
+				%td= link_to onduty.id, onduty_path(onduty), :data => { :reload => true }
+				%td= onduty.driverName
+				%td= onduty.plateNumber
+				%td= onduty.studentName
+				%td= onduty.studentId
+				%td= onduty.vehicleLat
+				%td= onduty.vehicleLng
+				%td= onduty.startLat
+				%td= onduty.startLng
+				%td= onduty.endLat
+				%td= onduty.endLng
+				%td= onduty.isFinished
+
+= link_to 'View Admins', users_index_path
+= link_to 'View Vehicles', vehicles_path
+= link_to 'View Drivers', drivers_path
+= link_to 'View Requests', requests_path
+
+:javascript
+	let duties = #{ @onduties.to_json.html_safe };
+	let handler = Gmaps.build('Google');
+	handler.buildMap({
+		provider: {},
+		internal: { id: 'map' }
+	}, () => {
+		markers = handler.addMarkers(
+			duties
+				.filter(duty => duty.isFinished == false)
+				.map(duty => getVehicleMarker(duty))
+		);
+		handler.bounds.extendWith(markers);
+		handler.fitMapToBounds();
+	});
+
+	function getVehicleMarker(duty) {
+		return {
+			"lat": duty.vehicleLat,
+			"lng": duty.vehicleLng,
+			"picture": {
+				"width":  180,
+				"height": 32
+			},
+			"infowindow": getInfoWindow(duty)
+		};
+	}
+
+	function getInfoWindow(duty) {
+		let infoWindow = "";
+		let vehicle = getHTMLTagString("p", "Vehicle#", `${duty.plateNumber}`);
+		infoWindow += vehicle;
+		let dName = getHTMLTagString("p", "Driver Name", `${duty.driverName}`);
+		infoWindow += dName;
+		let sName = getHTMLTagString("p", "Student Name", `${duty.studentName}`);
+		infoWindow += sName;
+		let sID = getHTMLTagString("p", "Student ID", `${duty.studentId}`);
+		infoWindow += sID;
+		return infoWindow;
+	}
+
+	function getHTMLTagString(tag, title, content) {
+		return `<${tag}><b>${title}:</b> ${content}</${tag}>`;
+	}
