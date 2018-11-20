@@ -46,6 +46,5 @@ class OndutiesController < ApplicationController
 		onduty = Onduty.find_by_id(params[:id])
 		att = {:vehicleLng => params[:lng], :vehicleLat => params[:lat]}
 		onduty.update_attributes!(att)
-
 	end
 end

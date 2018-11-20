@@ -5,6 +5,7 @@
 %table#Onduties
 	%thead
 		%tr
+			%th ID
 			%th DriverName
 			%th PlateNumber
 			%th StudentName
@@ -20,6 +21,7 @@
 	%tbody
 		- @onduties.each do |onduty|
 			%tr
+				%td= link_to onduty.id, onduty_path(onduty), :data => { :reload => true }
 				%td= onduty.driverName
 				%td= onduty.plateNumber
 				%td= onduty.studentName

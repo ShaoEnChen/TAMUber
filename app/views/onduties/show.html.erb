@@ -1,197 +1,135 @@
-<div style='width: 800px;'>  
-  <div id="map" style='width: 800px; height: 400px;'></div>  
-</div>  
+<div id="map" style='width: 800px; height: 400px;'></div>
+
 <strong>update status: </strong><a id="info">getting data</a>
-<script type="text/javascript">  
-var map;
-
-function initialize() {
-  var mapProp = {
-    center: new google.maps.LatLng(38, -78),
-    zoom: 6,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  map = new google.maps.Map(document.getElementById('map'), mapProp);
-};
-
-initialize();
-
-var directionsDisplay = new google.maps.DirectionsRenderer();
-var directionsService = new google.maps.DirectionsService();
-var cooridinate = []
-
-function calcRoute() {
-  var origin      = new google.maps.LatLng(<%= @onduty.vehicleLat %>, <%= @onduty.vehicleLng %>);
-  var destination = new google.maps.LatLng(<%= @onduty.endLat %>, <%= @onduty.endLng %>);
-  var request = {
-      origin:      origin,
-      destination: destination,
-      travelMode:  google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-      //console.log(response.routes[0])
-      //console.log(response.routes[0].overview_path[0].lat())
-      //console.log(response.routes[0].overview_path)
-      cooridinate = response.routes[0].overview_path
-      
-      var leg = response.routes[ 0 ].legs[ 0 ];
-      
-      /*var mapProp = {
-        center: new google.maps.LatLng(38, -78),
-        zoom: 6,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };*/
-      //map = new google.maps.Map(document.getElementById('map'), mapProp);
-
-
-
-    }
-    else {
-            window.alert('Directions request failed due to ' + status);
-    }
-  });
-}
-
-function makeMarker( position, title ) {
- new google.maps.Marker({
-  position: position,
-  map: handler.getMap(),
-  title: title
- });
-}
-
-calcRoute(); // call this anywhere you want
-
-var index = 0;
-console.log("Start");
-setTimeout(updateCarPos, 5000);
-function updateCarPos() {
-  i = index;
-  document.getElementById("info").innerHTML = i + 1 + "/" + cooridinate.length;
-  var id = <%=@onduty.id%>;
-    console.log("update location" + i);
-    // Directly set marker
-    //makeMarker( cooridinate[i], "title" );
-    // Set marker based on DB 
-    $.ajax({
-            type:    "POST",
-            url:     "<%=update_car_pos_path%>",
-            data:    {id: id, lat: cooridinate[i].lat(), lng: cooridinate[i].lng()},
-            success: function(post){ console.log('success') },
-            error:   function(post){ console.log(this) }
-      })
-    //await sleep(3000);
-    /*$.ajax({
-      type:    "POST",
-      url:     "http://localhost:3000/routers/",
-      data:    { cooridinate: cooridinate[i].lng() },
-      success: function(post){ console.log('success') },
-      error:   function(post){ console.log(this) }
-    })*/
-    //$("#s_ip").val(cooridinate[i]) cooridinate: cooridinate[i].lat()
-    document.getElementById("vehicleLat").innerHTML = cooridinate[i].lat();
-    document.getElementById("vehicleLng").innerHTML = cooridinate[i].lng();
-    index += 1;
-    if (index < cooridinate.length) setTimeout(updateCarPos, 3000);
-    else {
-      console.log("Finish");
-      document.getElementById("isFinished").innerHTML = "Ture";
-      //window.close();
-    } 
-}
-
-var handler = Gmaps.build('Google');
-handler.buildMap({ internal: {id: 'map'}}, function(){
-  directionsDisplay.setMap(handler.getMap());
-});
-
-//console.log(cooridinate);
-
-handler = Gmaps.build('Google');  
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
-    markers = handler.addMarkers(<%=raw @routers_default.to_json %>);  
-    handler.bounds.extendWith(markers);  
-    handler.fitMapToBounds();  
-}); 
-</script>
-
-<script type="text/javascript">  
-/*handler = Gmaps.build('Google');  
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
-  markers = handler.addMarkers([  
-    {  
-      "lat": 30.619703,  
-      "lng": -96.334977, 
-      "picture": {  
-        "width":  180,  
-        "height": 32  
-      },  
-      "infowindow": "A&M"  
-    }  
-  ]);  
-  handler.bounds.extendWith(markers);  
-  handler.fitMapToBounds();
-  handler.getMap().setZoom(16);  
-}); */ 
-</script>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>driverName:</strong>
-  <%= @onduty.driverName%>
+	<strong>driverName:</strong>
+	<%= @onduty.driverName%>
 </p>
 
 <p>
-  <strong>PlateNumber:</strong>
-  <%= @onduty.plateNumber%>
+	<strong>PlateNumber:</strong>
+	<%= @onduty.plateNumber%>
 </p>
 
 <p>
-  <strong>studentName:</strong>
-  <%= @onduty.studentName%>
+	<strong>studentName:</strong>
+	<%= @onduty.studentName%>
 </p>
 
 <p>
-  <strong>studentId:</strong>
-  <%= @onduty.studentId%>
+	<strong>studentId:</strong>
+	<%= @onduty.studentId%>
 </p>
 
 <p>
-  <strong>vehicleLat:</strong>
-  <a id = 'vehicleLat'><%= @onduty.vehicleLat%></a>
+	<strong>vehicleLat:</strong>
+	<a id = 'vehicleLat'><%= @onduty.vehicleLat%></a>
 </p>
 
 <p>
-  <strong>vehicleLng:</strong>
-  <a id = 'vehicleLng'><%= @onduty.vehicleLng%></a>
+	<strong>vehicleLng:</strong>
+	<a id = 'vehicleLng'><%= @onduty.vehicleLng%></a>
 </p>
 
 <p>
-  <strong>startLat:</strong>
-  <%= @onduty.startLat%>
-</p>
-    
-<p>
-  <strong>startLng:</strong>
-  <%= @onduty.startLng%>
+	<strong>startLat:</strong>
+	<%= @onduty.startLat%>
 </p>
 
 <p>
-  <strong>endLat:</strong>
-  <%= @onduty.endLat%>
+	<strong>startLng:</strong>
+	<%= @onduty.startLng%>
 </p>
 
 <p>
-  <strong>endLng:</strong>
-  <%= @onduty.endLng%>
+	<strong>endLat:</strong>
+	<%= @onduty.endLat%>
 </p>
 
 <p>
-  <strong>isFinished:</strong>
-  <a id = 'isFinished'><%= @onduty.isFinished%></a>
+	<strong>endLng:</strong>
+	<%= @onduty.endLng%>
+</p>
+
+<p>
+	<strong>isFinished:</strong>
+	<a id = 'isFinished'><%= @onduty.isFinished%></a>
 </p>
 
 <%= link_to 'Back', onduties_path%>
+
+<script type="text/javascript">
+var handler = Gmaps.build('Google');
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsService = new google.maps.DirectionsService();
+var cooridinate = [];
+var index = 0;
+
+let startLat = <%= @onduty.startLat %>;
+let startLng = <%= @onduty.startLng %>;
+let endLat = <%= @onduty.endLat %>;
+let endLng = <%= @onduty.endLng %>;
+
+handler.buildMap({ internal: {id: 'map'}}, function(){
+	directionsDisplay.setMap(handler.getMap());
+});
+
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+	markers = handler.addMarkers(<%=raw @routers_default.to_json %>);
+	handler.bounds.extendWith(markers);
+	handler.fitMapToBounds();
+});
+
+function calcRoute() {
+	var origin      = new google.maps.LatLng(startLat, startLng);
+	var destination = new google.maps.LatLng(endLat, endLng);
+	var request = {
+		origin:      origin,
+		destination: destination,
+		travelMode:  google.maps.TravelMode.DRIVING
+	};
+	directionsService.route(request, function(response, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+			directionsDisplay.setDirections(response);
+			cooridinate = response.routes[0].overview_path
+
+			var leg = response.routes[0].legs[0];
+		}
+		else {
+			window.alert('Directions request failed due to ' + status);
+		}
+	});
+}
+
+calcRoute(); // call this anywhere you want
+console.log("Start");
+setTimeout(updateCarPos, 5000);
+
+function updateCarPos() {
+	i = index;
+	document.getElementById("info").innerHTML = i + 1 + "/" + cooridinate.length;
+	var id = <%= @onduty.id %>;
+	console.log("update location " + i);
+
+	$.ajax({
+		type:    "POST",
+		url:     "<%=update_car_pos_path%>",
+		data:    {id: id, lat: cooridinate[i].lat(), lng: cooridinate[i].lng()},
+		success: function(post){ console.log('success') },
+		error:   function(post){ console.log(this) }
+	})
+
+	document.getElementById("vehicleLat").innerHTML = cooridinate[i].lat();
+	document.getElementById("vehicleLng").innerHTML = cooridinate[i].lng();
+	index += 1;
+	if (index < cooridinate.length) setTimeout(updateCarPos, 3000);
+	else {
+		console.log("Finish");
+		document.getElementById("isFinished").innerHTML = "True";
+	}
+}
+</script>
