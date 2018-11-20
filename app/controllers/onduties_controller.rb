@@ -22,7 +22,7 @@ class OndutiesController < ApplicationController
 
 	def create
 		@onduty = Onduty.create!(onduty_params)
-		flash[:notice] = "Onduty #{@onduty.driverName} was successfully created."
+		flash[:notice] = "Onduty #{@onduty.id} was successfully created."
 		redirect_to onduties_path
 	end
 
@@ -31,13 +31,13 @@ class OndutiesController < ApplicationController
 
 	def update
 		@onduty.update_attributes!(onduty_params)
-		flash[:notice] = "Onduty #{@onduty.driverName} was successfully updated."
+		flash[:notice] = "Onduty #{@onduty.id} was successfully updated."
 		redirect_to onduties_path
 	end
 
 	def destroy
 		@onduty.destroy
-		flash[:notice] = "Onduty #{@onduty.driverName} was successfully deleted."
+		flash[:notice] = "Onduty #{@onduty.id} was successfully deleted."
 		redirect_to onduties_path
 	end
 end
