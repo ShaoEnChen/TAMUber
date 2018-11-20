@@ -21,7 +21,7 @@ var directionsService = new google.maps.DirectionsService();
 var cooridinate = []
 
 function calcRoute() {
-  var origin      = new google.maps.LatLng(<%= @onduty.startLat %>, <%= @onduty.startLng %>);
+  var origin      = new google.maps.LatLng(<%= @onduty.vehicleLat %>, <%= @onduty.vehicleLng %>);
   var destination = new google.maps.LatLng(<%= @onduty.endLat %>, <%= @onduty.endLng %>);
   var request = {
       origin:      origin,
