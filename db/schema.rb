@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_205751) do
+ActiveRecord::Schema.define(version: 2018_11_19_015444) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
+    t.boolean "isAvaliable", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "onduties", force: :cascade do |t|
+    t.string "driverName"
+    t.string "plateNumber"
+    t.string "studentName"
+    t.string "studentId"
+    t.float "vehicleLat"
+    t.float "vehicleLng"
+    t.float "startLat"
+    t.float "startLng"
+    t.float "endLat"
+    t.float "endLng"
+    t.boolean "isFinished"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "name"
+    t.string "studentId"
+    t.float "startLat"
+    t.float "startLng"
+    t.float "endLat"
+    t.float "endLng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_205751) do
 
   create_table "vehicles", force: :cascade do |t|
     t.string "name"
+    t.boolean "isAvaliable", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

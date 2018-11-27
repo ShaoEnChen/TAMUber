@@ -1,0 +1,38 @@
+%h1 Create New Onduty
+
+= form_tag onduties_path do
+
+	= label :onduty, :driverName, 'DriverName'
+	= text_field :onduty, :driverName
+
+	= label :onduty, :plateNumber, 'PlateNumber'
+	= text_field :onduty, :plateNumber
+
+	= label :onduty, :studentName, 'studentName'
+	= text_field :onduty, :studentName
+
+	= label :onduty, :StudentId, 'StudentId'
+	= text_field :onduty, :studentId
+
+	= label :onduty, :vehicleLat, 'VehicleLat'
+	= text_field :onduty, :vehicleLat
+
+	= label :onduty, :vehicleLng, 'VehicleLng'
+	= text_field :onduty, :vehicleLng
+
+	= label :onduty, :startLat, 'StartLat'
+	= text_field :onduty, :startLat
+
+	= label :onduty, :startLng, 'StartLng'
+	= text_field :onduty, :startLng
+
+	= label :onduty, :endLat, 'EndLat'
+	= text_field :onduty, :endLat
+
+	= label :onduty, :endLng, 'EndLng'
+	= text_field :onduty, :endLng
+
+	= label :onduty, :isFinished, 'Isfinished'
+	= text_field :onduty, :isFinished
+
+	= submit_tag 'Create onduty'

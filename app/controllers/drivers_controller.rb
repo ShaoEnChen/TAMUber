@@ -7,7 +7,7 @@ class DriversController < ApplicationController
 	end
 
 	def driver_params
-		params.require(:driver).permit(:name)
+		params.require(:driver).permit(:name,:isAvaliable)
 	end
 
 	def index
