@@ -16,3 +16,4 @@
 //= require_tree .
 //= require gmaps/google
 //= require jquery
+//= require js-routes

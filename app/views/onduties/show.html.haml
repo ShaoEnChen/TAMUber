@@ -1,0 +1,124 @@
+#map
+
+%h3 #{flash[:notice]}
+
+%strong update status:
+%span#info getting data
+
+%p
+	%strong driverName:
+	= @onduty.driverName
+
+%p
+	%strong plateNumber:
+	= @onduty.plateNumber
+
+%p
+	%strong studentName:
+	= @onduty.studentName
+
+%p
+	%strong studentId:
+	= @onduty.studentId
+
+%p
+	%strong vehicleLat:
+	%span#vehicleLat= @onduty.vehicleLat
+
+%p
+	%strong vehicleLng:
+	%span#vehicleLng= @onduty.vehicleLng
+
+%p
+	%strong startLat:
+	%span= @onduty.startLat
+
+%p
+	%strong startLng:
+	%span= @onduty.startLng
+
+%p
+	%strong endLat:
+	%span= @onduty.endLat
+
+%p
+	%strong endLng:
+	%span= @onduty.endLng
+
+%p
+	%strong isFinished:
+	%span#isFinished= @onduty.isFinished
+
+= link_to 'Back', onduties_path
+
+:javascript
+	let duty = #{ @onduty.to_json.html_safe };
+	let handler = Gmaps.build('Google');
+	let directionsDisplay = new google.maps.DirectionsRenderer();
+	let directionsService = new google.maps.DirectionsService();
+	let cooridinate = [];
+	let index = 0;
+
+	let startLat = duty.startLat;
+	let startLng = duty.startLng;
+	let endLat = duty.endLat;
+	let endLng = duty.endLng;
+
+	handler.buildMap({
+		provider: {},
+		internal: { id: 'map' }
+	}, () => {
+		directionsDisplay.setMap(handler.getMap());
+		let markers = handler.addMarkers([getVehicleMarker(duty)]);
+		handler.bounds.extendWith(markers);
+		handler.fitMapToBounds();
+	});
+
+	function calcRoute() {
+		let origin      = new google.maps.LatLng(startLat, startLng);
+		let destination = new google.maps.LatLng(endLat, endLng);
+		let request = {
+			origin:      origin,
+			destination: destination,
+			travelMode:  google.maps.TravelMode.DRIVING
+		};
+		directionsService.route(request, function(response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay.setDirections(response);
+				cooridinate = response.routes[0].overview_path
+
+				let leg = response.routes[0].legs[0];
+			}
+			else {
+				window.alert('Directions request failed due to ' + status);
+			}
+		});
+	}
+
+	calcRoute(); // call this anywhere you want
+	console.log("Start");
+	setTimeout(updateCarPos, 5000);
+
+	function updateCarPos() {
+		let i = index;
+		document.getElementById("info").innerHTML = i + 1 + "/" + cooridinate.length;
+		let id = duty.id;
+		console.log("update location " + i);
+
+		$.ajax({
+			type:    "POST",
+			url:     Routes.update_car_pos_path(),
+			data:    {id: id, lat: cooridinate[i].lat(), lng: cooridinate[i].lng()},
+			success: function(post){ console.log('success') },
+			error:   function(post){ console.log(this) }
+		})
+
+		document.getElementById("vehicleLat").innerHTML = cooridinate[i].lat();
+		document.getElementById("vehicleLng").innerHTML = cooridinate[i].lng();
+		index += 1;
+		if (index < cooridinate.length) setTimeout(updateCarPos, 3000);
+		else {
+			console.log("Finish");
+			document.getElementById("isFinished").innerHTML = "True";
+		}
+	}
