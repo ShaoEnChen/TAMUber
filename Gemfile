@@ -27,11 +27,13 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'jquery-rails'
 
 # Build google map API
 gem 'gmaps4rails'
 
-gem 'jquery-rails'
+# Build nice-looking UIs
+gem 'bootstrap'
 
 # Access rails routes by javascript
 gem "js-routes"
