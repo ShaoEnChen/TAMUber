@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_015444) do
     t.float "endLat"
     t.float "endLng"
     t.boolean "isFinished"
+    t.boolean "isAlert"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
