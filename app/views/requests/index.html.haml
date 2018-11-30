@@ -22,9 +22,5 @@
 				%td= request.endLat
 				%td= request.endLng
 
-
-				%td= link_to 'Update ' + request.name, edit_request_path(request)
-				%td= button_to 'Delete ' + request.name, request_path(request), :method => :delete, :confirm => 'Are you sure?'
-
 = link_to 'Add New Request', new_request_path
 = link_to 'Back to Homepage', root_path
