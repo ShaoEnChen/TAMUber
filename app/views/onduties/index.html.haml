@@ -17,6 +17,7 @@
 			%th Endlat
 			%th Endlng
 			%th isFinished
+			%th isAlert
 
 	%tbody
 		- @onduties.each do |onduty|
@@ -33,11 +34,13 @@
 				%td= onduty.endLat
 				%td= onduty.endLng
 				%td= onduty.isFinished
+				%td= onduty.isAlert
 
 = link_to 'View Admins', users_index_path
 = link_to 'View Vehicles', vehicles_path
 = link_to 'View Drivers', drivers_path
 = link_to 'View Requests', requests_path
+= link_to 'View Alerts', alerts_path
 
 :javascript
 	let duties = #{ @onduties.to_json.html_safe };
