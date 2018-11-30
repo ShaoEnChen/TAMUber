@@ -17,7 +17,7 @@ class CreateOnduties < ActiveRecord::Migration[5.2]
       t.float :endLng
 
       t.boolean :isFinished
-
+      t.boolean :isAlert
       t.timestamps
     end
   end

@@ -10,13 +10,7 @@ class RequestsController < ApplicationController
 		params.require(:request).permit(:name,:studentId,:startLat,:startLng,:endLat,:endLng)
 	end
 
-	def driver_params
-		params.require(:driver).permit(:name,:isAvaliable)
-	end
 
-	def vehicle_params
-		params.require(:vehicle).permit(:name,:isAvaliable)
-	end
 
 	def index
 		@requests = Request.all
@@ -49,6 +43,7 @@ class RequestsController < ApplicationController
 			onduty_dic["endLat"] = @request.endLat
 			onduty_dic["endLng"] = @request.endLng
 			onduty_dic["isFinished"] = false
+			onduty_dic["isAlert"] = false
 
 			@request_to_onduty = Onduty.create!(onduty_dic)
 
