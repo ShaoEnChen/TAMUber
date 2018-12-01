@@ -1,30 +1,27 @@
-%h1 All Requests
+.container
+	%h1 All Requests
 
-%h3 #{flash[:notice]}
+	%h3 #{flash[:notice]}
 
-%table#Requests
-	%thead
-		%tr
-			%th Name
-			%th Studentid
-			%th Startlat
-			%th Startlng
-			%th Endlat
-			%th Endlng
+	.table-responsive
+		%table#Requests.table
+			%thead
+				%tr
+					%th Name
+					%th Studentid
+					%th Startlat
+					%th Startlng
+					%th Endlat
+					%th Endlng
 
-	%tbody
-		- @requests.each do |request|
-			%tr
-				%td= request.name
-				%td= request.studentId
-				%td= request.startLat
-				%td= request.startLng
-				%td= request.endLat
-				%td= request.endLng
+			%tbody
+				- @requests.each do |request|
+					%tr
+						%td= request.name
+						%td= request.studentId
+						%td= request.startLat
+						%td= request.startLng
+						%td= request.endLat
+						%td= request.endLng
 
-
-				%td= link_to 'Update ' + request.name, edit_request_path(request)
-				%td= button_to 'Delete ' + request.name, request_path(request), :method => :delete, :confirm => 'Are you sure?'
-
-= link_to 'Add New Request', new_request_path
-= link_to 'Back to Homepage', root_path
+	= link_to 'Add New Request', new_request_path, :class => "btn btn-outline-primary"

@@ -1,41 +1,54 @@
-%h1 Edit Onduty #{@onduty.driverName}
+.container
+	%h1 Edit Onduty #{@onduty.driverName}
 
-= form_tag onduty_path(@onduty), :method => :put do
+	= form_tag onduty_path(@onduty), :method => :put do
 
-	= label :onduty, :driverName, 'DriverName'
-	= text_field :onduty, :driverName
+		.form-group
+			= label :onduty, :driverName, 'DriverName'
+			= text_field :onduty, :driverName, :class => "form-control"
 
-	= label :onduty, :plateNumber, 'PlateNumber'
-	= text_field :onduty, :plateNumber
+		.form-group
+			= label :onduty, :plateNumber, 'PlateNumber'
+			= text_field :onduty, :plateNumber, :class => "form-control"
 
-	= label :onduty, :studentName, 'StudentName'
-	= text_field :onduty, :studentName
+		.form-group
+			= label :onduty, :studentName, 'StudentName'
+			= text_field :onduty, :studentName, :class => "form-control"
 
-	= label :onduty, :studentId, 'StudentId'
-	= text_field :onduty, :studentId
+		.form-group
+			= label :onduty, :studentId, 'StudentId'
+			= text_field :onduty, :studentId, :class => "form-control"
 
-	= label :onduty, :vehicleLat, 'VehicleLat'
-	= text_field :onduty, :vehicleLat
+		.form-group
+			= label :onduty, :vehicleLat, 'VehicleLat'
+			= text_field :onduty, :vehicleLat, :class => "form-control"
 
-	= label :onduty, :vehicleLng, 'VehicleLng'
-	= text_field :onduty, :vehicleLng
+		.form-group
+			= label :onduty, :vehicleLng, 'VehicleLng'
+			= text_field :onduty, :vehicleLng, :class => "form-control"
 
-	= label :onduty, :startLat, 'StartLat'
-	= text_field :onduty, :startLat
+		.form-group
+			= label :onduty, :startLat, 'StartLat'
+			= text_field :onduty, :startLat, :class => "form-control"
 
-	= label :onduty, :startLng, 'StartLng'
-	= text_field :onduty, :startLng
+		.form-group
+			= label :onduty, :startLng, 'StartLng'
+			= text_field :onduty, :startLng, :class => "form-control"
 
-	= label :onduty, :endLat, 'EndLat'
-	= text_field :onduty, :endLat
+		.form-group
+			= label :onduty, :endLat, 'EndLat'
+			= text_field :onduty, :endLat, :class => "form-control"
 
-	= label :onduty, :endLng, 'EndLng'
-	= text_field :onduty, :endLng
+		.form-group
+			= label :onduty, :endLng, 'EndLng'
+			= text_field :onduty, :endLng, :class => "form-control"
 
-	= label :onduty, :isFinished, 'Isfinished'
-	= text_field :onduty, :isFinished
+		.form-group
+			= label :onduty, :isFinished, 'Isfinished'
+			= text_field :onduty, :isFinished, :class => "form-control"
 
-	= label :onduty, :isAlert, 'IsAlert'
-	= text_field :onduty, :isAlert
+		.form-group
+			= label :onduty, :isAlert, 'IsAlert'
+			= text_field :onduty, :isAlert, :class => "form-control"
 
-	= submit_tag 'Update Onduty Info'
+		= submit_tag 'Update Onduty Info', :class => "btn btn-outline-primary"

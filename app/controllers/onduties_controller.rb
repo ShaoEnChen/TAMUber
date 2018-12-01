@@ -12,7 +12,7 @@ class OndutiesController < ApplicationController
 	end
 
 	def index
-		@onduties = Onduty.all
+		@onduties = Onduty.where(:isFinished => false)
 	end
 
 	def new
@@ -49,14 +49,14 @@ class OndutiesController < ApplicationController
 			#set driver available
 			@driver = Driver.where(name = params[:driverName]).first
 			if @driver
-				@driver.isAvaliable = true
+				@driver.isAvailable = true
 				@driver.save
-			end	
+			end
 			@vehicle = Vehicle.where(name = params[:plateNumber]).first
 			if @vehicle
-				@vehicle.isAvaliable = true
+				@vehicle.isAvailable = true
 				@vehicle.save
-			end	
+			end
 		else
 			att = {:vehicleLng => params[:lng], :vehicleLat => params[:lat]}
 		end

@@ -1,11 +1,10 @@
-%h1 Edit Onduty #{@onduty.driverName}
+.container
+	%h1 Edit Onduty #{@onduty.driverName}
 
-= form_tag alert_path(@onduty), :method => :put do
+	= form_tag alert_path(@onduty), :method => :put do
 
-	= label :onduty, :isAlert, 'IsAlert'
-	= text_field :onduty, :isAlert
+		.form-group
+			= label :onduty, :isAlert, 'Is Alert'
+			= text_field :onduty, :isAlert, :class => "form-control"
 
-	= submit_tag 'Update Vehicle Info'
-
-
-
+		= submit_tag 'Update Vehicle Info', :class => "btn btn-outline-primary"

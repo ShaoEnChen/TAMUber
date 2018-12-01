@@ -1,23 +1,25 @@
-%h1 All Users
+.container
+	%h1 All Users
 
-%h3 #{flash[:notice]}
+	%h3 #{flash[:notice]}
 
-- if current_user
-	= link_to 'Change password', edit_registration_path(:user)
-	= link_to 'Log out', destroy_user_session_path, :method => :delete
-- else
-	= link_to 'Sign in', new_session_path(:user)
-	= link_to 'Sign up', new_registration_path(:user)
+	- if current_user
+		= link_to 'Change password', edit_registration_path(:user)
+		%br
+		= link_to 'Log out', destroy_user_session_path, :method => :delete
+	- else
+		= link_to 'Sign in', new_session_path(:user)
+		%br
+		= link_to 'Sign up', new_registration_path(:user)
 
-%table#users
-	%thead
-		%tr
-			%th Name
-			%th Email
-	%tbody
-		- @users.each do |user|
-			%tr
-				%td= user.name
-				%td= user.email
-
-= link_to 'Back to Homepage', root_path
+	.table-responsive.mt-3
+		%table#users.table
+			%thead
+				%tr
+					%th Name
+					%th Email
+			%tbody
+				- @users.each do |user|
+					%tr
+						%td= user.name
+						%td= user.email
