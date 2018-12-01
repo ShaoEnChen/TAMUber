@@ -7,7 +7,7 @@ class VehiclesController < ApplicationController
 	end
 
 	def vehicle_params
-		params.require(:vehicle).permit(:name,:isAvaliable)
+		params.require(:vehicle).permit(:name,:isAvailable)
 	end
 
 	def index

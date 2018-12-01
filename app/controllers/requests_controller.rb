@@ -23,10 +23,10 @@ class RequestsController < ApplicationController
 	end
 
 	def create
-		@driver = Driver.where("drivers.isAvaliable IS NOT FALSE").first
-		@vehicle = Vehicle.where("vehicles.isAvaliable IS NOT FALSE").first
+		@driver = Driver.where("drivers.isAvailable IS NOT FALSE").first
+		@vehicle = Vehicle.where("vehicles.isAvailable IS NOT FALSE").first
 		if(@driver==nil || @vehicle==nil)
-			flash[:notice] = "No avaliable drivers or vehicles."
+			flash[:notice] = "No available drivers or vehicles."
 			redirect_to requests_path
 		else
 			#need to set vehicle start point
@@ -47,8 +47,8 @@ class RequestsController < ApplicationController
 
 			@request_to_onduty = Onduty.create!(onduty_dic)
 
-			@driver.isAvaliable = false
-			@vehicle.isAvaliable = false
+			@driver.isAvailable = false
+			@vehicle.isAvailable = false
 			@driver.save
 			@vehicle.save
 

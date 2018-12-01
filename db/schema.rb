@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_015444) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
-    t.boolean "isAvaliable", default: true
+    t.boolean "isAvailable", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_015444) do
 
   create_table "vehicles", force: :cascade do |t|
     t.string "name"
-    t.boolean "isAvaliable", default: true
+    t.boolean "isAvailable", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
