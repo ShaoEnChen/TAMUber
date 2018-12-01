@@ -108,7 +108,7 @@
 		$.ajax({
 			type:    "POST",
 			url:     Routes.update_car_pos_path(),
-			data:    {id: id, lat: cooridinate[i].lat(), lng: cooridinate[i].lng()},
+			data:    {id_: id, lat: cooridinate[i].lat(), lng: cooridinate[i].lng(), isFinished: 'false'},
 			success: function(post){ console.log('success') },
 			error:   function(post){ console.log(this) }
 		})
@@ -116,9 +116,17 @@
 		document.getElementById("vehicleLat").innerHTML = cooridinate[i].lat();
 		document.getElementById("vehicleLng").innerHTML = cooridinate[i].lng();
 		index += 1;
-		if (index < cooridinate.length) setTimeout(updateCarPos, 3000);
+		if (index < cooridinate.length) setTimeout(updateCarPos, 1500);
 		else {
-			console.log("Finish");
+			var dirver_name = duty.driverName;
+			$.ajax({
+				type:    "POST",
+				url:     Routes.update_car_pos_path(),
+				data:    {id_: id, isFinished: 'true', dirver_name: dirver_name},
+				success: function(post){ console.log('success') },
+				error:   function(post){ console.log(this) }
+			})
 			document.getElementById("isFinished").innerHTML = "True";
+			console.log("Finish");
 		}
 	}

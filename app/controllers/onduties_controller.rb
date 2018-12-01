@@ -43,8 +43,23 @@ class OndutiesController < ApplicationController
 	end
 
 	def update_car_pos
-		onduty = Onduty.find_by_id(params[:id])
-		att = {:vehicleLng => params[:lng], :vehicleLat => params[:lat]}
+		onduty = Onduty.find_by_id(params[:id_])
+		if params[:isFinished] == 'true'
+			att = {:isFinished => true}
+			#set driver available
+			@driver = Driver.where(name = params[:driverName]).first
+			if @driver
+				@driver.isAvaliable = true
+				@driver.save
+			end	
+			@vehicle = Vehicle.where(name = params[:plateNumber]).first
+			if @vehicle
+				@vehicle.isAvaliable = true
+				@vehicle.save
+			end	
+		else
+			att = {:vehicleLng => params[:lng], :vehicleLat => params[:lat]}
+		end
 		onduty.update_attributes!(att)
 	end
 end
