@@ -1,3 +1,12 @@
+const HRBB = {
+	// Texas A&M Harvey R. "Bum" Bright Building (HRBB)
+	loc: {
+		lat: 30.619028,
+		lng: -96.338789
+	},
+	zoom: 18
+};
+
 function getVehicleMarker(duty) {
 	return {
 		"lat": duty.vehicleLat,
