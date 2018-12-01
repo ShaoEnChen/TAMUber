@@ -1,11 +1,14 @@
-%h1 Edit Driver #{@driver.name}
+.container
+	%h1 Edit Driver #{@driver.name}
 
-= form_tag driver_path(@driver), :method => :put do
+	= form_tag driver_path(@driver), :method => :put do
 
-	= label :driver, :name, 'Name'
-	= text_field :driver, :name
+		.form-group
+			= label :driver, :name, 'Name'
+			= text_field :driver, :name, :class => "form-control"
 
-	= label :driver, :isAvaliable, 'Is_avaliable'
-	= text_field :driver, :isAvaliable
+		.form-group
+			= label :driver, :isAvailable, 'Is Available (true/false)'
+			= text_field :driver, :isAvailable, :class => "form-control"
 
-	= submit_tag 'Update Driver Info'
+		= submit_tag 'Update Driver Info', :class => "btn btn-outline-primary"

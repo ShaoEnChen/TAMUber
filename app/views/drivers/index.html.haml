@@ -1,19 +1,20 @@
-%h1 All drivers
+.container
+	%h1 All Drivers
 
-%h3 #{flash[:notice]}
+	%h3 #{flash[:notice]}
 
-%table#drivers
-	%thead
-		%tr
-			%th Name
-			%th Is_avaliable
-	%tbody
-		- @drivers.each do |driver|
-			%tr
-				%td= driver.name
-				%td= driver.isAvaliable
-				%td= link_to 'Update ' + driver.name, edit_driver_path(driver)
-				%td= button_to 'Delete ' + driver.name, driver_path(driver), :method => :delete, :confirm => 'Are you sure?'
+	.table-responsive
+		%table#drivers.table
+			%thead
+				%tr
+					%th Name
+					%th Is Available
+			%tbody
+				- @drivers.each do |driver|
+					%tr
+						%td= driver.name
+						%td= driver.isAvailable
+						%td= link_to 'Update ' + driver.name, edit_driver_path(driver), :class => "btn btn-outline-primary"
+						%td= button_to 'Delete ' + driver.name, driver_path(driver), :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-outline-danger"
 
-= link_to 'Add New Driver', new_driver_path
-= link_to 'Back to Homepage', root_path
+	= link_to 'Add New Driver', new_driver_path, :class => "btn btn-outline-primary"

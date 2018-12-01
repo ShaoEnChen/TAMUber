@@ -1,11 +1,14 @@
-%h1 Create New Driver
+.container
+	%h1 Create New Driver
 
-= form_tag drivers_path do
+	= form_tag drivers_path do
 
-	= label :driver, :name, 'Name'
-	= text_field :driver, :name
+		.form-group
+			= label :driver, :name, 'Name'
+			= text_field :driver, :name, :class => "form-control"
 
-	= label :driver, :isAvaliable, 'Is_avaliable'
-	= text_field :driver, :isAvaliable
+		.form-group
+			= label :driver, :isAvailable, 'Is Available (true/false)'
+			= text_field :driver, :isAvailable, :class => "form-control"
 
-	= submit_tag 'Create Driver'
+		= submit_tag 'Create Driver', :class => "btn btn-outline-primary"

@@ -1,37 +1,38 @@
-#map.container
+.container
+	#map
 
-%h3 #{flash[:notice]}
+	%h3 #{flash[:notice]}
 
-.table-responsive
-	%table#Onduties.table
-		%thead
-			%tr
-				%th ID
-				%th Driver
-				%th Plate#
-				%th Student
-				%th StudentId
-				%th VehicleLat
-				%th VehicleLng
-				%th Startlat
-				%th Startlng
-				%th Endlat
-				%th Endlng
-
-		%tbody
-			- @onduties.each do |onduty|
+	.table-responsive
+		%table#Onduties.table
+			%thead
 				%tr
-					%td= link_to onduty.id, onduty_path(onduty)
-					%td= onduty.driverName
-					%td= onduty.plateNumber
-					%td= onduty.studentName
-					%td= onduty.studentId
-					%td= onduty.vehicleLat
-					%td= onduty.vehicleLng
-					%td= onduty.startLat
-					%td= onduty.startLng
-					%td= onduty.endLat
-					%td= onduty.endLng
+					%th ID
+					%th Driver
+					%th Plate#
+					%th Student
+					%th StudentId
+					%th VehicleLat
+					%th VehicleLng
+					%th Startlat
+					%th Startlng
+					%th Endlat
+					%th Endlng
+
+			%tbody
+				- @onduties.each do |onduty|
+					%tr
+						%td= link_to onduty.id, onduty_path(onduty)
+						%td= onduty.driverName
+						%td= onduty.plateNumber
+						%td= onduty.studentName
+						%td= onduty.studentId
+						%td= onduty.vehicleLat
+						%td= onduty.vehicleLng
+						%td= onduty.startLat
+						%td= onduty.startLng
+						%td= onduty.endLat
+						%td= onduty.endLng
 
 = javascript_include_tag "mapMarker.js"
 :javascript

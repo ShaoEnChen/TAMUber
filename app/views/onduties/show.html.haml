@@ -1,55 +1,57 @@
-#map
+.container
+	#map
 
-%h3 #{flash[:notice]}
+	%h3 #{flash[:notice]}
 
-%strong update status:
-%span#info getting data
+	%p
+		%strong update status:
+		%span#info getting data
 
-%p
-	%strong driverName:
-	= @onduty.driverName
+	%p
+		%strong driverName:
+		= @onduty.driverName
 
-%p
-	%strong plateNumber:
-	= @onduty.plateNumber
+	%p
+		%strong plateNumber:
+		= @onduty.plateNumber
 
-%p
-	%strong studentName:
-	= @onduty.studentName
+	%p
+		%strong studentName:
+		= @onduty.studentName
 
-%p
-	%strong studentId:
-	= @onduty.studentId
+	%p
+		%strong studentId:
+		= @onduty.studentId
 
-%p
-	%strong vehicleLat:
-	%span#vehicleLat= @onduty.vehicleLat
+	%p
+		%strong vehicleLat:
+		%span#vehicleLat= @onduty.vehicleLat
 
-%p
-	%strong vehicleLng:
-	%span#vehicleLng= @onduty.vehicleLng
+	%p
+		%strong vehicleLng:
+		%span#vehicleLng= @onduty.vehicleLng
 
-%p
-	%strong startLat:
-	%span= @onduty.startLat
+	%p
+		%strong startLat:
+		%span= @onduty.startLat
 
-%p
-	%strong startLng:
-	%span= @onduty.startLng
+	%p
+		%strong startLng:
+		%span= @onduty.startLng
 
-%p
-	%strong endLat:
-	%span= @onduty.endLat
+	%p
+		%strong endLat:
+		%span= @onduty.endLat
 
-%p
-	%strong endLng:
-	%span= @onduty.endLng
+	%p
+		%strong endLng:
+		%span= @onduty.endLng
 
-%p
-	%strong isFinished:
-	%span#isFinished= @onduty.isFinished
+	%p
+		%strong isFinished:
+		%span#isFinished= @onduty.isFinished
 
-= link_to 'Back', onduties_path
+	= link_to 'Back', onduties_path
 
 :javascript
 	let duty = #{ @onduty.to_json.html_safe };

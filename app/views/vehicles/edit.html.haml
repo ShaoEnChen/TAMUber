@@ -1,11 +1,14 @@
-%h1 Edit Vehicle #{@vehicle.name}
+.container
+	%h1 Edit Vehicle #{@vehicle.name}
 
-= form_tag vehicle_path(@vehicle), :method => :put do
+	= form_tag vehicle_path(@vehicle), :method => :put do
 
-	= label :vehicle, :name, 'Plate Number'
-	= text_field :vehicle, :name
+		.form-group
+			= label :vehicle, :name, 'Plate Number'
+			= text_field :vehicle, :name, :class => "form-control"
 
-	= label :vehicle, :isAvaliable, 'Is_avaliable'
-	= text_field :vehicle, :isAvaliable
+		.form-group
+			= label :vehicle, :isAvailable, 'Is Available (true/false)'
+			= text_field :vehicle, :isAvailable, :class => "form-control"
 
-	= submit_tag 'Update Vehicle Info'
+		= submit_tag 'Update Vehicle Info', :class => "btn btn-outline-primary"
