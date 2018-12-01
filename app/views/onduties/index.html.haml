@@ -21,7 +21,7 @@
 
 			%tbody
 				- @onduties.each do |onduty|
-					%tr
+					%tr{ :class => onduty.isAlert ? "table-danger" : "" }
 						%td= link_to onduty.id, onduty_path(onduty)
 						%td= onduty.driverName
 						%td= onduty.plateNumber
