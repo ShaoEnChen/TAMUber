@@ -47,9 +47,16 @@ class OndutiesController < ApplicationController
 		if params[:isFinished] == 'true'
 			att = {:isFinished => true}
 			#set driver available
-			#driver = Driver.find_by_dirver_name params[:id_]
-			#att_tmp = {:isAvaliable => true}
-			#driver.update_attributes!(att_tmp)
+			@driver = Driver.where(name = params[:driverName]).first
+			if @driver
+				@driver.isAvaliable = true
+				@driver.save
+			end	
+			@vehicle = Vehicle.where(name = params[:plateNumber]).first
+			if @vehicle
+				@vehicle.isAvaliable = true
+				@vehicle.save
+			end	
 		else
 			att = {:vehicleLng => params[:lng], :vehicleLat => params[:lat]}
 		end
