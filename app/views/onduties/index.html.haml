@@ -42,6 +42,7 @@
 		provider: {},
 		internal: { id: 'map' }
 	}, () => {
+		console.log(duties)
 		let markers = handler.addMarkers(
 			duties
 				.filter(duty => duty.isFinished == false)
