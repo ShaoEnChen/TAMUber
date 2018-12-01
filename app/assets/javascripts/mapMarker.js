@@ -8,12 +8,16 @@ const HRBB = {
 };
 
 function getVehicleMarker(duty) {
+	let icon = duty.isAlert ?
+		"assets/car-alert.png" :
+		"assets/car.png";
 	return {
 		"lat": duty.vehicleLat,
 		"lng": duty.vehicleLng,
 		"picture": {
-			"width":  180,
-			"height": 32
+			"url": icon,
+			"width":  64,
+			"height": 64
 		},
 		"infowindow": getInfoWindow(duty)
 	};
