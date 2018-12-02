@@ -38,7 +38,6 @@
 	let duties = #{ @onduties.to_json.html_safe };
 	let handler = Gmaps.build('Google');
 	handler.buildMap({
-		provider: {},
 		internal: { id: 'map' }
 	}, () => {
 		if (duties.length == 0) {
@@ -47,9 +46,7 @@
 			handler.getMap().setZoom(HRBB.zoom);
 		} else {
 			let markers = handler.addMarkers(
-				duties
-					.filter(duty => duty.isFinished == false)
-					.map(duty => getVehicleMarker(duty))
+				duties.map(duty => getVehicleMarker(duty))
 			);
 			handler.bounds.extendWith(markers);
 			handler.fitMapToBounds();
