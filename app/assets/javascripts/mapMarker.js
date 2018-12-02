@@ -1,10 +1,23 @@
+const HRBB = {
+	// Texas A&M Harvey R. "Bum" Bright Building (HRBB)
+	loc: {
+		lat: 30.619028,
+		lng: -96.338789
+	},
+	zoom: 18
+};
+
 function getVehicleMarker(duty) {
+	let icon = duty.isAlert ?
+		"/assets/car-alert.png" :
+		"/assets/car.png";
 	return {
 		"lat": duty.vehicleLat,
 		"lng": duty.vehicleLng,
 		"picture": {
-			"width":  180,
-			"height": 32
+			"url": icon,
+			"width":  64,
+			"height": 64
 		},
 		"infowindow": getInfoWindow(duty)
 	};

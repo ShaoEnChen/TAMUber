@@ -60,11 +60,8 @@
 	let directionsService = new google.maps.DirectionsService();
 	let cooridinate = [];
 	let index = 0;
-
-	let startLat = duty.startLat;
-	let startLng = duty.startLng;
-	let endLat = duty.endLat;
-	let endLng = duty.endLng;
+	let updateRate = 3000;
+	let mapZoom = 15;
 
 	handler.buildMap({
 		provider: {},
@@ -72,24 +69,23 @@
 	}, () => {
 		directionsDisplay.setMap(handler.getMap());
 		let markers = handler.addMarkers([getVehicleMarker(duty)]);
-		handler.bounds.extendWith(markers);
-		handler.fitMapToBounds();
 	});
 
-	function calcRoute() {
-		let origin      = new google.maps.LatLng(startLat, startLng);
+	function getGMapRequest(startLat, startLng, endLat, endLng) {
+		let origin = new google.maps.LatLng(startLat, startLng);
 		let destination = new google.maps.LatLng(endLat, endLng);
-		let request = {
-			origin:      origin,
-			destination: destination,
-			travelMode:  google.maps.TravelMode.DRIVING
+		return {
+			origin,
+			destination,
+			travelMode: google.maps.TravelMode.DRIVING
 		};
-		directionsService.route(request, function(response, status) {
+	}
+
+	function drawRoute() {
+		let request = getGMapRequest(duty.startLat, duty.startLng, duty.endLat, duty.endLng);
+		directionsService.route(request, (response, status) => {
 			if (status == google.maps.DirectionsStatus.OK) {
 				directionsDisplay.setDirections(response);
-				cooridinate = response.routes[0].overview_path
-
-				let leg = response.routes[0].legs[0];
 			}
 			else {
 				window.alert('Directions request failed due to ' + status);
@@ -97,37 +93,71 @@
 		});
 	}
 
-	calcRoute(); // call this anywhere you want
+	function calcCoordinate() {
+		let request = getGMapRequest(duty.vehicleLat, duty.vehicleLng, duty.endLat, duty.endLng);
+		directionsService.route(request, (response, status) => {
+			if (status == google.maps.DirectionsStatus.OK) {
+				cooridinate = response.routes[0].overview_path;
+			}
+			else {
+				window.alert('Directions request failed due to ' + status);
+			}
+		});
+	}
+
+	drawRoute();
+	calcCoordinate();
 	console.log("Start");
-	setTimeout(updateCarPos, 5000);
+	setTimeout(updateCarPos, updateRate);
 
 	function updateCarPos() {
 		let i = index;
 		document.getElementById("info").innerHTML = i + 1 + "/" + cooridinate.length;
-		let id = duty.id;
 		console.log("update location " + i);
 
 		$.ajax({
-			type:    "POST",
-			url:     Routes.update_car_pos_path(),
-			data:    {id_: id, lat: cooridinate[i].lat(), lng: cooridinate[i].lng(), isFinished: 'false'},
-			success: function(post){ console.log('success') },
-			error:   function(post){ console.log(this) }
-		})
+			type: "POST",
+			url: Routes.update_car_pos_path(),
+			data: {
+				id_: duty.id,
+				lat: cooridinate[i].lat(),
+				lng: cooridinate[i].lng(),
+				isFinished: 'false'
+			},
+			success: function(post){ console.log('success'); },
+			error: function(post){ console.log(this); }
+		});
 
-		document.getElementById("vehicleLat").innerHTML = cooridinate[i].lat();
-		document.getElementById("vehicleLng").innerHTML = cooridinate[i].lng();
+		duty.vehicleLat = cooridinate[i].lat();
+		duty.vehicleLng = cooridinate[i].lng();
+
+		document.getElementById("vehicleLat").innerHTML = duty.vehicleLat;
+		document.getElementById("vehicleLng").innerHTML = duty.vehicleLng;
 		index += 1;
-		if (index < cooridinate.length) setTimeout(updateCarPos, 1500);
-		else {
-			var dirver_name = duty.driverName;
+
+		handler.buildMap({
+			internal: { id: 'map' }
+		}, () => {
+			directionsDisplay.setMap(handler.getMap());
+			let marker = handler.addMarkers([getVehicleMarker(duty)])[0];
+		});
+
+		if (index < cooridinate.length) {
+			setTimeout(updateCarPos, updateRate);
+		} else {
 			$.ajax({
-				type:    "POST",
-				url:     Routes.update_car_pos_path(),
-				data:    {id_: id, isFinished: 'true', dirver_name: dirver_name},
-				success: function(post){ console.log('success') },
-				error:   function(post){ console.log(this) }
-			})
+				type: "POST",
+				url: Routes.update_car_pos_path(),
+				data: {
+					id_: duty.id,
+					driverName: duty.driverName,
+					plateNumber: duty.plateNumber,
+					isFinished: 'true'
+				},
+				success: (post) => { console.log('success') },
+				error: (post) => { console.log(this) }
+			});
+
 			document.getElementById("isFinished").innerHTML = "True";
 			console.log("Finish");
 		}
