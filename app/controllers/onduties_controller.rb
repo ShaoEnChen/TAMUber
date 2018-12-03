@@ -47,12 +47,12 @@ class OndutiesController < ApplicationController
 		if params[:isFinished] == 'true'
 			att = {:isFinished => true}
 			#set driver available
-			@driver = Driver.where(name = params[:driverName]).first
+			@driver = Driver.where(name: params[:driverName]).first
 			if @driver
 				@driver.isAvailable = true
 				@driver.save
 			end
-			@vehicle = Vehicle.where(name = params[:plateNumber]).first
+			@vehicle = Vehicle.where(name: params[:plateNumber]).first
 			if @vehicle
 				@vehicle.isAvailable = true
 				@vehicle.save
