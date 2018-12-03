@@ -23,8 +23,8 @@ class RequestsController < ApplicationController
 	end
 
 	def create
-		@driver = Driver.where("drivers.isAvailable IS NOT FALSE").first
-		@vehicle = Vehicle.where("vehicles.isAvailable IS NOT FALSE").first
+		@driver = Driver.where(isAvailable: true).first
+		@vehicle = Vehicle.where(isAvailable: true).first
 		if(@driver==nil || @vehicle==nil)
 			flash[:notice] = "No available drivers or vehicles."
 			redirect_to requests_path
