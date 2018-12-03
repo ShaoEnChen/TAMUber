@@ -9,8 +9,8 @@ const HRBB = {
 
 function getVehicleMarker(duty) {
 	let icon = duty.isAlert ?
-		"/assets/car-alert.png" :
-		"/assets/car.png";
+		"/images/car-alert.png" :
+		"/images/car.png";
 	return {
 		"lat": duty.vehicleLat,
 		"lng": duty.vehicleLng,
