@@ -17,6 +17,10 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
 
+.container {
+	@extend .my-5
+}
+
 .bg-maroon {
 	background-color: #500000;
 	color: #fff;
