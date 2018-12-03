@@ -17,4 +17,4 @@
 						%td= onduty.driverName
 						%td= onduty.plateNumber
 						%td= onduty.isAlert
-						%td= link_to 'Update ' + onduty.id, edit_alert_path(onduty), :class => "btn btn-outline-primary"
+						%td= link_to 'Update ' + onduty.id.to_s, edit_alert_path(onduty), :class => "btn btn-outline-primary"
